@@ -1,43 +1,56 @@
+"""
+Application Configuration
+Owner: Harsha (Engineering Lead)
+
+All configuration is loaded from environment variables (via .env file).
+Never hardcode secrets here.
+"""
+
 from pydantic_settings import BaseSettings
-from functools import lru_cache
-from typing import List
+from typing import Optional
 
 
 class Settings(BaseSettings):
-    # App
-    APP_NAME: str = "AI-Kiosk Backend"
-    APP_VERSION: str = "0.1.0"
+    # ─── LLM ────────────────────────────────────────────────────────────────
+    OPENAI_API_KEY: Optional[str] = None
+    LLM_MODEL: str = "gpt-4o"
+    EMBEDDING_MODEL: str = "text-embedding-3-small"
+
+    # ─── Backend ─────────────────────────────────────────────────────────────
+    BACKEND_HOST: str = "localhost"
+    BACKEND_PORT: int = 8000
+    SECRET_KEY: str = "change-me-to-random-string"
     DEBUG: bool = True
-    HOST: str = "0.0.0.0"
-    PORT: int = 8000
+    LOG_LEVEL: str = "INFO"
 
-    # CORS
-    ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
+    # ─── Database ────────────────────────────────────────────────────────────
+    DATABASE_URL: str = "sqlite:///./vidyasahayak.db"
+    REDIS_URL: str = "redis://localhost:6379"
 
-    # Redis
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
-    REDIS_DB: int = 0
-    REDIS_URL: str = "redis://localhost:6379/0"
+    # ─── Vector Store ────────────────────────────────────────────────────────
+    CHROMA_PERSIST_DIR: str = "./knowledge/vectorstore"
+    CHROMA_COLLECTION_NAME: str = "vidyasahayak_kb"
 
-    # SQLite
-    SQLITE_DB_PATH: str = "./data/kiosk.db"
-    DATABASE_URL: str = "sqlite+aiosqlite:///./data/kiosk.db"
+    # ─── Speech ──────────────────────────────────────────────────────────────
+    WHISPER_MODEL_SIZE: str = "medium"
+    TTS_ENGINE: str = "coqui"
 
-    # Session
-    SESSION_TTL_SECONDS: int = 1800  # 30 minutes
+    # ─── Camera / Detection ──────────────────────────────────────────────────
+    CAMERA_INDEX: int = 0
+    DETECTION_CONFIDENCE: float = 0.6
+    PRESENCE_DURATION_SEC: float = 1.5
 
-    # Service flags (toggle real vs mock)
-    USE_MOCK_SERVICES: bool = True
+    # ─── Feature Flags ───────────────────────────────────────────────────────
+    # Set to false to use mocks during development
+    USE_REAL_DETECTOR: bool = False
+    USE_REAL_RIAR: bool = False
+    USE_REAL_AGENTS: bool = False
+    USE_REAL_ASR: bool = False
+    USE_REAL_TTS: bool = False
 
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
 
 
-@lru_cache()
-def get_settings() -> Settings:
-    return Settings()
-
-
-settings = get_settings()
+settings = Settings()

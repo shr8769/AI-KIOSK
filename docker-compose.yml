@@ -1,63 +1,46 @@
 version: "3.9"
 
 services:
+  backend:
+    build:
+      context: .
+      dockerfile: deployment/docker/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./vidyasahayak.db
+      - REDIS_URL=redis://redis:6379
+      - USE_REAL_DETECTOR=false
+      - USE_REAL_RIAR=false
+      - USE_REAL_AGENTS=false
+      - USE_REAL_ASR=false
+      - USE_REAL_TTS=false
+      - DEBUG=true
+    volumes:
+      - .:/app
+      - ./knowledge/vectorstore:/app/knowledge/vectorstore
+    depends_on:
+      - redis
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
 
-  # ── Redis ─────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../deployment/docker/Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+
   redis:
     image: redis:7-alpine
-    container_name: kiosk_redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
-    restart: unless-stopped
-
-  # ── Backend ───────────────────────────────────
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: kiosk_backend
-    ports:
-      - "8000:8000"
-    environment:
-      - DEBUG=true
-      - USE_MOCK_SERVICES=true
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_URL=redis://redis:6379/0
-      - SQLITE_DB_PATH=/app/data/kiosk.db
-      - DATABASE_URL=sqlite+aiosqlite:////app/data/kiosk.db
-      - ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
-    volumes:
-      - ./backend:/app          # live-reload in dev
-      - backend_data:/app/data
-    depends_on:
-      redis:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-
-  # ── Frontend (placeholder) ────────────────────
-  # Uncomment when Haseeb's frontend is ready
-  # frontend:
-  #   build: ./frontend
-  #   container_name: kiosk_frontend
-  #   ports:
-  #     - "5173:5173"
-  #   depends_on:
-  #     - backend
 
 volumes:
   redis_data:
-  backend_data:

@@ -4,12 +4,13 @@ Owner: Harsha (Engineering Lead) — endpoint
        Haseeb (Project Lead) — fires events from detection module
 """
 
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+import logging
+import uuid
 from datetime import datetime
 from typing import Optional
-import uuid
-import logging
+
+from fastapi import APIRouter
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -49,7 +50,7 @@ async def create_session_on_detection(request: DetectRequest):
         session_id=session_id,
         action="session_created",
         greeting_text="Hello! Welcome to PES University. How can I help you today?",
-        greeting_audio_url=f"/static/audio/greeting_en.mp3",
+        greeting_audio_url="/static/audio/greeting_en.mp3",
         language_prompt="Please speak in English, Kannada, or Hindi."
     )
 

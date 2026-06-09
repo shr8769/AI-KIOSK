@@ -6,11 +6,16 @@ All mocks return plausible data so the frontend can integrate immediately.
 
 import base64
 import random
-from app.models.schemas import (
-    DetectResponse, ASRResponse, RIARResponse, RAGResponse,
-    RAGSource, TTSResponse, AmbiguityLevel,
-)
 
+from app.models.schemas import (
+    AmbiguityLevel,
+    ASRResponse,
+    DetectResponse,
+    RAGResponse,
+    RAGSource,
+    RIARResponse,
+    TTSResponse,
+)
 
 # ── Detection ─────────────────────────────────
 

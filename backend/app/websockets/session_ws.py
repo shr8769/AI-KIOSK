@@ -8,10 +8,11 @@ Message protocol (JSON):
 
 import json
 from typing import Dict
+
 from fastapi import WebSocket, WebSocketDisconnect
+
 from app.core.logging import logger
 from app.core.session_store import get_session
-
 
 # ── Connection Manager ────────────────────────
 

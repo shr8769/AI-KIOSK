@@ -4,11 +4,13 @@ Owner: Harsha (Engineering Lead) — endpoint
        Haseeb (Project Lead) — pipeline logic
 """
 
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-from typing import Optional, List
 import logging
-import sys, os
+import os
+import sys
+from typing import List
+
+from fastapi import APIRouter
+from pydantic import BaseModel
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../../../../"))
 
@@ -50,7 +52,6 @@ async def run_riar(request: RIARRequest):
 
     if settings.USE_REAL_RIAR:
         # Use Haseeb's real RIAR pipeline
-        from riar.pipeline import RIARPipeline
         # pipeline = RIARPipeline(vector_store=..., llm_client=...)
         # result = pipeline.run(request.query, request.session_history, request.language)
         # TODO: Wire up real vector_store and llm_client via dependency injection
@@ -83,7 +84,6 @@ async def submit_clarification(request: ClarifyRequest):
     logger.info(f"Clarification received | session={request.session_id}")
 
     if settings.USE_REAL_RIAR:
-        from riar.pipeline import RIARPipeline
         raise NotImplementedError("Real RIAR not wired up yet")
     else:
         from tests.mocks.mock_modules import MockRIARPipeline

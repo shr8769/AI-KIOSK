@@ -1,16 +1,27 @@
 from fastapi import APIRouter, HTTPException, Request
+
+from app.core.session_store import close_session, create_session, get_session
 from app.models.schemas import (
-    DetectRequest, DetectResponse,
-    ASRRequest, ASRResponse,
-    RIARRequest, RIARResponse,
-    RAGRequest, RAGResponse,
-    TTSRequest, TTSResponse,
-    SessionCreateRequest, SessionResponse,
+    ASRRequest,
+    ASRResponse,
+    DetectRequest,
+    DetectResponse,
+    RAGRequest,
+    RAGResponse,
+    RIARRequest,
+    RIARResponse,
+    SessionCreateRequest,
+    SessionResponse,
+    TTSRequest,
+    TTSResponse,
 )
 from app.services.mock_services import (
-    detection_service, asr_service, riar_service, rag_service, tts_service,
+    asr_service,
+    detection_service,
+    rag_service,
+    riar_service,
+    tts_service,
 )
-from app.core.session_store import create_session, get_session, close_session
 
 router = APIRouter()
 

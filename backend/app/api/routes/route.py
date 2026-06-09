@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 router = APIRouter()
 
 @router.post("/route")
@@ -6,7 +7,7 @@ async def route_query():
     """
     Route refined query to appropriate domain agent.
     Owner: Harsha (coordinator dispatch)
-    
+
     TODO Week 3:
     - Accept session_id, refined_query, domain
     - Call appropriate domain agent (real or mock based on USE_REAL_AGENTS)

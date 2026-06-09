@@ -1,0 +1,148 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Please provide enough detail to reproduce the issue.
+
+  - type: input
+    id: module
+    attributes:
+      label: Affected Module
+      placeholder: "e.g., riar, backend/asr, detection, avatar"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - P0 - System crashes / Demo broken
+        - P1 - Major feature broken
+        - P2 - Minor feature broken / workaround available
+        - P3 - Cosmetic / minor issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Run `python ...`
+        2. Call endpoint `POST /riar` with payload `{...}`
+        3. Observe error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: Include error message / stack trace if available
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "OS: Windows 11, Python 3.11, CUDA 12.1, branch: develop"
+    validations:
+      required: true
+
+  - type: input
+    id: assignee
+    attributes:
+      label: Suggested Assignee
+      placeholder: "Haseeb / Harsha / Gowtham"
+---
+name: Research Task
+description: Track a research investigation or experiment
+title: "[RESEARCH] "
+labels: ["research", "experiment"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Research Task
+        Use for research investigations, literature reviews, and design decisions.
+
+  - type: input
+    id: research_area
+    attributes:
+      label: Research Area
+      placeholder: "e.g., RIAR ambiguity classification, retrieval evaluation"
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Research Owner
+      placeholder: "Haseeb / Harsha / Gowtham"
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Research Question / Hypothesis
+      description: What are we trying to answer or validate?
+    validations:
+      required: true
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed Approach
+      description: How will you investigate this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: Success Criteria
+      description: How will you know if the research question is answered?
+    validations:
+      required: true
+
+  - type: input
+    id: time_box
+    attributes:
+      label: Time Box
+      description: Maximum time to spend before making a decision
+      placeholder: "e.g., 2 days, 4 hours"
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected Output
+      description: What artifact will this produce? (code, report, decision, dataset)
+    validations:
+      required: true

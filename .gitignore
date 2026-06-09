@@ -1,0 +1,74 @@
+# ─── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# ─── Environment / Secrets ─────────────────────────────────────────────────
+.env
+*.key
+*.pem
+secrets/
+
+# ─── Node / Frontend ───────────────────────────────────────────────────────
+node_modules/
+dist/
+.next/
+.nuxt/
+
+# ─── Models / Large Files ──────────────────────────────────────────────────
+*.pt
+*.onnx
+*.bin
+*.safetensors
+models/
+whisper_models/
+
+# ─── Database ──────────────────────────────────────────────────────────────
+*.db
+*.sqlite3
+*.sqlite
+
+# ─── IDE ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Data / Evaluation Results ─────────────────────────────────────────────
+evaluation/results/
+# Commit datasets and ground truth, but not generated results
+!evaluation/datasets/
+!evaluation/datasets/**
+
+# ─── Vector Store (generated, not committed) ───────────────────────────────
+knowledge/vectorstore/
+knowledge/embeddings/__pycache__/
+
+# ─── Session Audio Files ───────────────────────────────────────────────────
+backend/static/sessions/
+sessions/
+
+# ─── Test Artifacts ────────────────────────────────────────────────────────
+test.db
+.coverage
+coverage.xml
+
+# ─── Temporary ─────────────────────────────────────────────────────────────
+tmp/
+temp/
+scratch/
+*.tmp

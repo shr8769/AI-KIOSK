@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deployment/docker/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./vidyasahayak.db
+      - REDIS_URL=redis://redis:6379
+      - USE_REAL_DETECTOR=false
+      - USE_REAL_RIAR=false
+      - USE_REAL_AGENTS=false
+      - USE_REAL_ASR=false
+      - USE_REAL_TTS=false
+      - DEBUG=true
+    volumes:
+      - .:/app
+      - ./knowledge/vectorstore:/app/knowledge/vectorstore
+    depends_on:
+      - redis
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../deployment/docker/Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

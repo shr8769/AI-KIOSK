@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VidyaSahayak Session Object",
+  "description": "Canonical session schema. All modules share this structure.",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "Unique session identifier. Format: ses_{12 hex chars}",
+      "example": "ses_abc123xyz789"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "closed", "error"],
+      "description": "Current session lifecycle state"
+    },
+    "person_detection": {
+      "type": "object",
+      "properties": {
+        "detected": { "type": "boolean" },
+        "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "first_detected_at": { "type": "string", "format": "date-time" },
+        "bounding_box": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "integer" },
+            "y": { "type": "integer" },
+            "w": { "type": "integer" },
+            "h": { "type": "integer" }
+          }
+        },
+        "camera_id": { "type": "string" }
+      }
+    },
+    "language": {
+      "type": "object",
+      "properties": {
+        "detected": { "type": "string", "enum": ["en", "kn", "hi"] },
+        "preferred": { "type": "string", "enum": ["en", "kn", "hi"] },
+        "supported": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["en", "kn", "hi"]
+        }
+      }
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "turn_id": { "type": "integer" },
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "raw_audio_path": { "type": "string", "nullable": true },
+          "transcript": { "type": "string" },
+          "transcript_en": { "type": "string", "nullable": true },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "language": { "type": "string" }
+        },
+        "required": ["turn_id", "role", "transcript", "timestamp"]
+      }
+    },
+    "riar": {
+      "type": "object",
+      "description": "RIAR pipeline state for the current/most recent turn",
+      "properties": {
+        "original_query": { "type": "string" },
+        "probe_chunks_retrieved": { "type": "integer" },
+        "ambiguity_score": { "type": "number" },
+        "ambiguity_detected": { "type": "boolean" },
+        "ambiguity_type": {
+          "type": "string",
+          "enum": ["CLEAR", "SEMANTIC", "CONTEXTUAL", "CROSS_DOMAIN"]
+        },
+        "clarification_question": { "type": "string", "nullable": true },
+        "user_clarification": { "type": "string", "nullable": true },
+        "refined_query": { "type": "string" },
+        "domain": {
+          "type": "string",
+          "enum": ["admissions", "academics", "placements", "research", "student_services", "navigation", "general"],
+          "nullable": true
+        },
+        "domains_considered": { "type": "array", "items": { "type": "string" } },
+        "routing_confidence": { "type": "number" }
+      }
+    },
+    "rag": {
+      "type": "object",
+      "description": "RAG retrieval and generation state",
+      "properties": {
+        "retrieved_chunks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chunk_id": { "type": "string" },
+              "source": { "type": "string" },
+              "page": { "type": "integer", "nullable": true },
+              "text": { "type": "string" },
+              "relevance_score": { "type": "number" }
+            }
+          }
+        },
+        "answer": { "type": "string" },
+        "answer_language": { "type": "string" },
+        "citations": { "type": "array", "items": { "type": "string" } },
+        "generation_model": { "type": "string" },
+        "tokens_used": { "type": "integer" }
+      }
+    },
+    "avatar": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["idle", "greeting", "listening", "processing", "speaking"]
+        },
+        "current_animation": { "type": "string" },
+        "lip_sync_active": { "type": "boolean" }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Per-turn latency metrics",
+      "properties": {
+        "asr_latency_ms": { "type": "integer" },
+        "riar_latency_ms": { "type": "integer" },
+        "rag_latency_ms": { "type": "integer" },
+        "tts_latency_ms": { "type": "integer" },
+        "total_latency_ms": { "type": "integer" }
+      }
+    }
+  },
+  "required": ["session_id", "created_at", "status", "turns"]
+}

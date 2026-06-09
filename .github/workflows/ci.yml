@@ -1,0 +1,101 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ develop, main, 'feature/**', 'hotfix/**' ]
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  backend-tests:
+    name: Backend Tests (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install pytest pytest-asyncio pytest-cov httpx
+
+      - name: Run backend tests
+        env:
+          USE_REAL_DETECTOR: false
+          USE_REAL_RIAR: false
+          USE_REAL_AGENTS: false
+          USE_REAL_ASR: false
+          USE_REAL_TTS: false
+          DATABASE_URL: sqlite:///./test.db
+          REDIS_URL: redis://localhost:6379
+        run: |
+          pytest backend/tests/ -v --tb=short --cov=backend/app --cov-report=term-missing
+
+  riar-tests:
+    name: RIAR Tests (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r backend/requirements.txt
+          pip install pytest
+
+      - name: Run RIAR tests
+        run: |
+          pytest riar/tests/ -v --tb=short
+
+  agent-tests:
+    name: Agent Tests (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r backend/requirements.txt
+          pip install pytest
+
+      - name: Run agent contract tests
+        run: |
+          pytest agents/ -v --tb=short
+
+  lint:
+    name: Lint (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install linters
+        run: pip install ruff black
+
+      - name: Run ruff
+        run: ruff check backend/ riar/ agents/ detection/ knowledge/
+
+      - name: Check black formatting
+        run: black --check backend/ riar/ agents/ detection/ knowledge/

@@ -1,0 +1,83 @@
+name: Feature Request
+description: Propose a new feature or capability
+title: "[FEATURE] "
+labels: ["feature", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        Use this template to propose a new feature. Be specific and concrete.
+
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: Which module does this feature belong to?
+      placeholder: "e.g., riar, backend, knowledge, avatar, detection"
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Proposed Owner
+      description: Who should build this?
+      placeholder: "Haseeb / Harsha / Gowtham"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Describe the feature in 2-3 sentences.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation / Why
+      description: Why is this feature needed? What problem does it solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How will we know this feature is complete?
+      placeholder: |
+        - [ ] Criteria 1
+        - [ ] Criteria 2
+        - [ ] Criteria 3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0 - Critical (blocks demo)
+        - P1 - High (impacts research quality)
+        - P2 - Medium (improves system)
+        - P3 - Low (nice to have)
+    validations:
+      required: true
+
+  - type: input
+    id: milestone
+    attributes:
+      label: Target Milestone
+      placeholder: "M1, M2, M3, etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: API impact? Dependencies on other modules?

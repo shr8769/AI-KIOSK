@@ -4,8 +4,6 @@ Owner: Engineering Team
 
 Tests for all API endpoints: detection, ASR, RIAR, routing, RAG, TTS, and session management.
 """
-
-import pytest
 from fastapi.testclient import TestClient
 
 

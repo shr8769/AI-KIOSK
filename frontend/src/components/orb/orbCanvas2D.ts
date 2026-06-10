@@ -198,10 +198,4 @@ export function drawAura(
     }
   }
 
-  /* Vignette — fade aura at outer edge so it blends into background */
-  const fade = ctx.createRadialGradient(cx, cy, 0, cx, cy, AW * 0.5);
-  fade.addColorStop(0.70, 'rgba(0,0,0,0)');
-  fade.addColorStop(1.00, 'rgba(6,8,16,0.97)');
-  ctx.fillStyle = fade;
-  ctx.fillRect(0, 0, AW, AH);
 }

@@ -149,9 +149,14 @@ void main() {
 
   vec3 col = hsl2rgb(hue, sat, lum);
   col += vec3(spec + spec2);
-  col *= mix(1.0, 0.4, pow(nd, 3.5)); // depth rim darkening
+  col *= mix(1.0, 0.0, pow(nd, 2.5)); // smooth darken towards edge
 
-  float alpha = smoothstep(R + 0.012, R - 0.016, dist) * edgeFade;
+  // Organic soft radial fade instead of hard sphere edge
+  float alpha = smoothstep(R + 0.08, R - 0.12, dist) * depthFade;
+  
+  // Ensure absolute transparency at the very edge to avoid clipping
+  alpha *= smoothstep(R + 0.012, R - 0.05, dist);
+
   gl_FragColor = vec4(col, alpha);
 }
 `;

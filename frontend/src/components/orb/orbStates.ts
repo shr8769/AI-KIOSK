@@ -43,57 +43,66 @@ export interface OrbStateConfig {
 
 export const ORB_STATES: OrbStateConfig[] = [
   {
+    // Deep Indigo / Midnight Slate breathing
     id: 'idle', label: 'Idle', desc: 'Waiting for you',
-    energy: .10, speed: .08, convergence: 0,   expansion: .05, turb: .04, membrane: .03,
-    hueA: 220, hueB: 230, hueC: 240, sat: .20, lum: .15,
+    energy: .05, speed: .02, convergence: 0.0, expansion: 0.02, turb: .01, membrane: .01,
+    hueA: 240, hueB: 230, hueC: 220, sat: .20, lum: .10,
     aura: 'breathe', mode: 'circulate',
   },
   {
+    // Soft Cyan expansion
     id: 'detected', label: 'User Detected', desc: 'I see you approaching',
-    energy: .25, speed: .12, convergence: 0,   expansion: .15, turb: .08, membrane: .08,
-    hueA: 210, hueB: 220, hueC: 230, sat: .30, lum: .25,
+    energy: .15, speed: .04, convergence: 0.0, expansion: 0.10, turb: .03, membrane: .02,
+    hueA: 190, hueB: 200, hueC: 210, sat: .40, lum: .18,
     aura: 'expand', mode: 'circulate',
   },
   {
+    // Gentle Cyan/Violet welcoming ripple
     id: 'greeting', label: 'Greeting', desc: 'Welcome to VidyaSahayak',
-    energy: .40, speed: .18, convergence: 0,   expansion: .25, turb: .12, membrane: .15,
-    hueA: 190, hueB: 210, hueC: 220, sat: .40, lum: .35,
+    energy: .20, speed: .06, convergence: 0.0, expansion: 0.15, turb: .05, membrane: .04,
+    hueA: 200, hueB: 230, hueC: 250, sat: .50, lum: .25,
     aura: 'warmPulse', mode: 'expand',
   },
   {
+    // Soft glowing Cyan with audio-reactive membrane
     id: 'listening', label: 'Listening', desc: "Go ahead, I'm listening",
-    energy: .45, speed: .20, convergence: .15, expansion: .10, turb: .30, membrane: .35,
-    hueA: 180, hueB: 200, hueC: 210, sat: .50, lum: .45,
+    energy: .25, speed: .08, convergence: .15, expansion: .10, turb: .08, membrane: .15,
+    hueA: 185, hueB: 195, hueC: 205, sat: .60, lum: .30,
     aura: 'ripple', mode: 'receive',
   },
   {
+    // Deep Violet/Indigo slow orbiting
     id: 'thinking', label: 'Thinking', desc: 'Processing your query',
-    energy: .35, speed: .15, convergence: .60, expansion: 0,   turb: .20, membrane: .10,
-    hueA: 250, hueB: 270, hueC: 290, sat: .45, lum: .40,
+    energy: .15, speed: .08, convergence: .40, expansion: 0.0, turb: .10, membrane: .02,
+    hueA: 255, hueB: 265, hueC: 275, sat: .40, lum: .20,
     aura: 'contract', mode: 'converge',
   },
   {
+    // Elegant scanning ring (Cyan to Violet)
     id: 'retrieving', label: 'Retrieving', desc: 'Searching knowledge base',
-    energy: .50, speed: .35, convergence: .70, expansion: 0,   turb: .25, membrane: .15,
-    hueA: 230, hueB: 250, hueC: 270, sat: .55, lum: .45,
+    energy: .25, speed: .12, convergence: .50, expansion: 0.0, turb: .12, membrane: .05,
+    hueA: 190, hueB: 220, hueC: 260, sat: .50, lum: .25,
     aura: 'stream', mode: 'inward',
   },
   {
+    // Dual phase glow (Cyan/Indigo)
     id: 'clarifying', label: 'Clarifying', desc: 'Could you clarify that?',
-    energy: .30, speed: .15, convergence: .25, expansion: .25, turb: .15, membrane: .15,
-    hueA: 35, hueB: 45, hueC: 55, sat: .45, lum: .40,
+    energy: .18, speed: .06, convergence: .15, expansion: .15, turb: .05, membrane: .05,
+    hueA: 200, hueB: 230, hueC: 260, sat: .40, lum: .22,
     aura: 'split', mode: 'oscillate',
   },
   {
+    // Ice White / Slate pulsing waveform synchronized breathing
     id: 'speaking', label: 'Speaking', desc: 'Here is what I found',
-    energy: .60, speed: .30, convergence: 0,   expansion: .40, turb: .20, membrane: .25,
-    hueA: 210, hueB: 220, hueC: 230, sat: .15, lum: .65, // Pulsing white/slate
+    energy: .40, speed: .10, convergence: 0.0, expansion: .25, turb: .15, membrane: .20,
+    hueA: 220, hueB: 230, hueC: 240, sat: .10, lum: .50,
     aura: 'radiate', mode: 'expand',
   },
   {
+    // Calm amber/red warning state
     id: 'error', label: 'Recovering', desc: 'Give me a moment',
-    energy: .15, speed: .10, convergence: .20, expansion: 0,   turb: .05, membrane: .05,
-    hueA: 0, hueB: 10, hueC: 20, sat: .35, lum: .25,
+    energy: .08, speed: .03, convergence: .10, expansion: 0.0, turb: .02, membrane: .02,
+    hueA: 10, hueB: 20, hueC: 30, sat: .30, lum: .15,
     aura: 'stabilize', mode: 'circulate',
   },
 ];

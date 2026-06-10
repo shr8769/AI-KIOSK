@@ -111,17 +111,20 @@ export default function KioskPage() {
   }, [connectWebSocket]);
 
   return (
-    <main className="min-h-screen bg-zinc-950 flex flex-col items-center justify-between py-12 px-4 relative overflow-hidden">
+    <main className="min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-zinc-950 to-black flex flex-col items-center justify-between py-10 px-4 relative overflow-hidden">
       
       {/* ── Top Premium Wordmark ── */}
-      <div className="w-full h-16 flex items-center justify-center relative z-10">
-        <h1 className="font-sans text-xs tracking-[0.3em] text-zinc-500 uppercase font-medium">
+      <div className="w-full flex flex-col items-center justify-center relative z-10 space-y-2 mt-2">
+        <h1 className="font-sans text-[11px] tracking-[0.3em] text-zinc-300 uppercase font-semibold">
           VidyaSahayak
         </h1>
+        <p className="font-sans text-[9px] tracking-[0.2em] text-zinc-500 uppercase">
+          PES University AI Assistant
+        </p>
       </div>
 
       {/* ── Orb & Interaction Space ─────────────────────── */}
-      <div className="relative z-20 flex-1 flex flex-col items-center justify-center w-full max-w-4xl">
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center w-full max-w-4xl mt-8">
         <VidyaSahayakOrb
           state={orbState}
           onStateChange={setOrbState}
@@ -129,14 +132,14 @@ export default function KioskPage() {
           showLabels={true}
           showControls={true}
           showMic={true}
-          size={500}
+          size={560} // Slightly larger to dominate the space
         />
       </div>
 
       {/* ── Footer ── */}
-      <div className="h-16 relative z-10 flex items-center justify-center text-center opacity-30">
-        <p className="font-sans text-[10px] tracking-[0.1em] text-zinc-500 uppercase">
-          AI Prototype
+      <div className="h-8 relative z-10 flex items-center justify-center text-center opacity-30">
+        <p className="font-sans text-[9px] tracking-[0.1em] text-zinc-500 uppercase">
+          Open Prototype
         </p>
       </div>
     </main>

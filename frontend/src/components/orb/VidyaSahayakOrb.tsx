@@ -236,13 +236,13 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
         />
       </div>
 
-      {/* ── Labels ── */}
+      {/* ── Labels & Assistant Response ── */}
       {showLabels && (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 48, minHeight: 80 }}>
-          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 10, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', fontWeight: 500, transition: 'all 0.6s ease' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 32, minHeight: 90 }}>
+          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 11, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', fontWeight: 600, transition: 'all 0.6s ease' }}>
             {label}
           </p>
-          <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 18, color: 'rgba(255,255,255,0.85)', marginTop: 12, textAlign: 'center', fontWeight: 400, letterSpacing: '0.01em', transition: 'all 0.6s ease' }}>
+          <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 22, color: 'rgba(255,255,255,0.95)', marginTop: 16, textAlign: 'center', fontWeight: 500, letterSpacing: '0.01em', transition: 'all 0.6s ease', maxWidth: '80%' }}>
             <Typewriter key={desc} text={desc} speed={30} delay={3000} cursor="|" className="inline-block" />
           </div>
         </div>
@@ -250,16 +250,16 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
 
       {/* ── Mic button ── */}
       {showMic && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 24, opacity: micOn ? 1 : 0.4, transition: 'opacity 0.3s', cursor: 'pointer' }} onClick={toggleMic}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 32, opacity: micOn ? 1 : 0.6, transition: 'opacity 0.3s', cursor: 'pointer' }} onClick={toggleMic}>
           <button
             title={micOn ? 'Stop listening' : 'Start listening'}
             style={{
-              width: 48, height: 48, borderRadius: '50%',
-              border: `1px solid ${micOn ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.05)'}`,
-              background: micOn ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.02)',
-              color: micOn ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)',
+              width: 52, height: 52, borderRadius: '50%',
+              border: `1px solid ${micOn ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)'}`,
+              background: micOn ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.03)',
+              color: micOn ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.6)',
               cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.4s ease', outline: 'none',
+              transition: 'all 0.4s ease', outline: 'none', backdropFilter: 'blur(10px)',
             }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -274,7 +274,7 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
 
       {/* ── State controls ── */}
       {showControls && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: 'center', marginTop: 32, maxWidth: 520, opacity: 0.15, transition: 'opacity 0.4s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.15'}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: 'center', marginTop: 40, maxWidth: 520, opacity: 0.15, transition: 'opacity 0.4s', backdropFilter: 'blur(8px)' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.15'}>
           {ORB_STATES.map(s => (
             <button
               key={s.id}
@@ -284,8 +284,8 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
                 fontSize: 9, fontWeight: 500, letterSpacing: '0.05em',
                 padding: '4px 10px', borderRadius: 100,
                 border: `1px solid ${activeId === s.id ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.05)'}`,
-                background: activeId === s.id ? 'rgba(255,255,255,0.1)' : 'transparent',
-                color: activeId === s.id ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.3)',
+                background: activeId === s.id ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.02)',
+                color: activeId === s.id ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)',
                 cursor: 'pointer', textTransform: 'uppercase', transition: 'all 0.3s ease', outline: 'none',
               }}
             >

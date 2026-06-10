@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { VidyaSahayakOrb } from '@/components/orb';
 import type { OrbState } from '@/components/orb/orbStates';
+import { TextParticle } from '@/components/ui/text-particle';
+import { Typewriter } from '@/components/ui/typewriter-text';
 
 const WS_BASE_URL = process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000/ws/session';
 
@@ -111,47 +113,51 @@ export default function KioskPage() {
   }, [connectWebSocket]);
 
   return (
-    <main style={{
-      minHeight: '100vh',
-      background: '#060810',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '40px 20px',
-    }}>
-      {/* ── Wordmark ── */}
-      <p style={{
-        fontSize: 10,
-        letterSpacing: '0.22em',
-        color: 'rgba(255,255,255,0.14)',
-        textTransform: 'uppercase',
-        fontWeight: 500,
-        marginBottom: 32,
-      }}>
-        VidyaSahayak · PES University
-      </p>
+    <main className="min-h-screen bg-[#060810] flex flex-col items-center justify-between py-16 px-4 relative overflow-hidden">
+      
+      {/* ── Top Magical Wordmark ── */}
+      <div className="w-full h-32 flex items-center justify-center relative z-10 mb-8">
+        <TextParticle
+          text="VIDYASAHAYAK"
+          fontSize={100}
+          fontFamily="system-ui, -apple-system, sans-serif"
+          particleColor="#38bdf8" // Glowing cyan/blue
+          particleSize={1.5}
+          particleDensity={4}
+          className="w-full h-full cursor-crosshair opacity-80"
+        />
+      </div>
 
       {/* ── Orb ───────────────────────────────────────── */}
-      <VidyaSahayakOrb
-        state={orbState}
-        onStateChange={setOrbState}
-        autoDemo={false}
-        showLabels={true}
-        showControls={true}
-        showMic={true}
-        size={300}
-      />
+      <div className="relative z-20 flex-1 flex items-center justify-center">
+        <VidyaSahayakOrb
+          state={orbState}
+          onStateChange={setOrbState}
+          autoDemo={false}
+          showLabels={true}
+          showControls={true}
+          showMic={true}
+          size={500}
+        />
+      </div>
 
-      <p style={{
-        marginTop: 40,
-        fontSize: 9,
-        letterSpacing: '0.12em',
-        color: 'rgba(255,255,255,0.08)',
-        textTransform: 'uppercase',
-      }}>
-        Fluid Intelligence · Academic AI · GPU Accelerated
-      </p>
+      {/* ── Dynamic Footer ── */}
+      <div className="h-16 mt-16 relative z-10 flex items-center justify-center text-center">
+        <Typewriter
+          text={[
+            "PES University",
+            "Fluid Intelligence",
+            "Academic AI",
+            "GPU Accelerated"
+          ]}
+          speed={70}
+          deleteSpeed={40}
+          delay={2500}
+          loop={true}
+          className="font-sans text-sm tracking-[0.2em] text-white/40 uppercase font-medium"
+          cursor="|"
+        />
+      </div>
     </main>
   );
 }

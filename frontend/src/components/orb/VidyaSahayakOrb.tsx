@@ -238,10 +238,10 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
       {/* ── Labels ── */}
       {showLabels && (
         <>
-          <p style={{ fontSize: 10, letterSpacing: '0.18em', color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase', fontWeight: 500, marginTop: 22, transition: 'all 0.6s ease' }}>
+          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, letterSpacing: '0.25em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', fontWeight: 600, marginTop: 40, transition: 'all 0.6s ease' }}>
             {label}
           </p>
-          <p style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.38)', marginTop: 8, textAlign: 'center', fontWeight: 400, letterSpacing: '0.015em', transition: 'all 0.6s ease' }}>
+          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 20, color: 'rgba(255,255,255,0.9)', marginTop: 12, textAlign: 'center', fontWeight: 400, letterSpacing: '0.02em', transition: 'all 0.6s ease' }}>
             {desc}
           </p>
         </>
@@ -254,12 +254,13 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
             onClick={toggleMic}
             title={micOn ? 'Stop listening' : 'Start listening'}
             style={{
-              width: 44, height: 44, borderRadius: '50%',
-              border: `0.5px solid ${micOn ? 'rgba(100,160,255,0.4)' : 'rgba(255,255,255,0.14)'}`,
-              background: micOn ? 'rgba(80,140,255,0.2)' : 'rgba(255,255,255,0.05)',
-              color: micOn ? 'rgba(160,200,255,0.9)' : 'rgba(255,255,255,0.5)',
+              width: 56, height: 56, borderRadius: '50%',
+              border: `1px solid ${micOn ? 'rgba(100,160,255,0.6)' : 'rgba(255,255,255,0.3)'}`,
+              background: micOn ? 'rgba(80,140,255,0.25)' : 'rgba(255,255,255,0.08)',
+              color: micOn ? 'rgba(160,200,255,1)' : 'rgba(255,255,255,0.8)',
               cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'all 0.25s', outline: 'none',
+              boxShadow: micOn ? '0 0 20px rgba(80,140,255,0.3)' : 'none',
             }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -269,7 +270,7 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
               <line x1="8" y1="21" x2="16" y2="21"/>
             </svg>
           </button>
-          <span style={{ fontSize: 10, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontWeight: 500 }}>
             {!micAvail ? 'Mic unavailable' : micOn ? 'Listening…' : 'Tap to listen'}
           </span>
         </div>
@@ -283,12 +284,14 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
               key={s.id}
               onClick={() => { stopDemo(); if (micOn) { stopMicAnalysis(micHandleRef.current); micHandleRef.current = null; setMicOn(false); } applyState(s.id as OrbState); }}
               style={{
-                fontSize: 10, fontWeight: 500, letterSpacing: '0.07em',
-                padding: '6px 13px', borderRadius: 100,
-                border: `0.5px solid ${activeId === s.id ? 'rgba(90,145,255,0.3)' : 'rgba(255,255,255,0.09)'}`,
-                background: activeId === s.id ? 'rgba(70,120,255,0.14)' : 'rgba(255,255,255,0.035)',
-                color: activeId === s.id ? 'rgba(160,195,255,0.88)' : 'rgba(255,255,255,0.32)',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
+                padding: '8px 16px', borderRadius: 100,
+                border: `1px solid ${activeId === s.id ? 'rgba(90,145,255,0.6)' : 'rgba(255,255,255,0.15)'}`,
+                background: activeId === s.id ? 'rgba(70,120,255,0.2)' : 'rgba(255,255,255,0.05)',
+                color: activeId === s.id ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)',
                 cursor: 'pointer', textTransform: 'uppercase', transition: 'all 0.2s', outline: 'none',
+                boxShadow: activeId === s.id ? '0 4px 12px rgba(70,120,255,0.2)' : 'none',
               }}
             >
               {s.label}

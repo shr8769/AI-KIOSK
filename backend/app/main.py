@@ -5,7 +5,7 @@ from app.api.routes.kiosk import router as kiosk_router
 from app.core.config import settings
 from app.core.logging import logger
 from app.core.middleware import RequestIDMiddleware
-from app.core.session_store import init_db, close_redis
+from app.core.session_store import close_redis, init_db
 from app.websockets.session_ws import websocket_session_handler
 
 

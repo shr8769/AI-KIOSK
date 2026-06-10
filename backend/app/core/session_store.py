@@ -12,7 +12,9 @@ from app.core.logging import logger
 
 
 class Session:
-    def __init__(self, session_id: str, created_at: str, status: str = "active", metadata: Dict = None):
+    def __init__(
+        self, session_id: str, created_at: str, status: str = "active", metadata: Dict = None
+    ):
         self.session_id = session_id
         self.created_at = created_at
         self.status = status
@@ -44,6 +46,7 @@ async def get_redis() -> aioredis.Redis:
     if _redis is None:
         _redis = aioredis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
     return _redis
+
 
 async def close_redis():
     global _redis
@@ -115,7 +118,9 @@ async def get_session(session_id: str) -> Optional[Session]:
         ) as cursor:
             row = await cursor.fetchone()
             if row:
-                return Session(session_id=row[0], created_at=row[1], status=row[2], metadata=json.loads(row[3]))
+                return Session(
+                    session_id=row[0], created_at=row[1], status=row[2], metadata=json.loads(row[3])
+                )
     return None
 
 

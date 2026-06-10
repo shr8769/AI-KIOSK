@@ -3,10 +3,10 @@ Session Management Route — GET/POST /session
 Owner: Harsha
 """
 
+import logging
+
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional, List
-import logging
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -24,7 +24,7 @@ class SessionInfo(BaseModel):
 async def get_session(session_id: str):
     """
     Retrieve session information and history.
-    
+
     TODO Week 2:
     - Query Redis for session data
     - Return session history and metadata
@@ -34,7 +34,7 @@ async def get_session(session_id: str):
         status="active",
         duration_seconds=120,
         turns_completed=3,
-        language="en"
+        language="en",
     )
 
 
@@ -42,7 +42,7 @@ async def get_session(session_id: str):
 async def close_session(session_id: str):
     """
     Close a session and archive data.
-    
+
     TODO Week 2:
     - Remove from Redis
     - Save to SQLite
@@ -52,5 +52,5 @@ async def close_session(session_id: str):
         "session_id": session_id,
         "action": "session_closed",
         "duration_seconds": 120,
-        "turns_completed": 3
+        "turns_completed": 3,
     }

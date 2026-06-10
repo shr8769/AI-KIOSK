@@ -6,17 +6,18 @@ Starts the VidyaSahayak backend API server.
 Run: uvicorn app.main:app --reload
 """
 
+import logging
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
-import logging
 
-from app.api.routes import events, asr, riar, route, rag, tts, session
+from app.api.routes import asr, events, rag, riar, route, session, tts
 from app.core.config import settings
 
 logging.basicConfig(
     level=logging.DEBUG if settings.DEBUG else logging.INFO,
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
 )
 logger = logging.getLogger(__name__)
 

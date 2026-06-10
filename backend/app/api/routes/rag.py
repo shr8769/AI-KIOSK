@@ -3,10 +3,11 @@ RAG Route — POST /rag (Retrieval-Augmented Generation)
 Owner: Harsha
 """
 
+import logging
+from typing import Optional
+
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional
-import logging
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -31,7 +32,7 @@ class RAGResponse(BaseModel):
 async def retrieve_and_generate(request: RAGRequest):
     """
     Retrieve relevant documents from knowledge base and generate answer using LLM.
-    
+
     TODO Week 2:
     - Query ChromaDB vector store
     - Use OpenAI GPT-4 for answer generation
@@ -41,5 +42,5 @@ async def retrieve_and_generate(request: RAGRequest):
         session_id=request.session_id,
         answer="[MOCK] To apply for B.Tech at PES University, visit our admissions portal...",
         source_documents=[],
-        confidence=0.85
+        confidence=0.85,
     )

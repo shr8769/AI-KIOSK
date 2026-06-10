@@ -3,10 +3,10 @@ ASR Route — POST /asr
 Owner: Harsha
 """
 
+import logging
+
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional
-import logging
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -34,7 +34,7 @@ class ASRResponse(BaseModel):
 async def transcribe_audio(request: ASRRequest):
     """
     Transcribe audio to text using Whisper.
-    
+
     TODO Week 2:
     - Accept multipart/form-data with audio_file
     - Run Whisper ASR (real or mock based on USE_REAL_ASR)
@@ -49,5 +49,5 @@ async def transcribe_audio(request: ASRRequest):
         detected_language="en",
         confidence=0.95,
         duration_ms=3000,
-        latency_ms=480
+        latency_ms=480,
     )

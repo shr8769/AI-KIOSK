@@ -28,8 +28,9 @@ class DetectionService:
             action="session_created",
             greeting_text="Hello! Welcome to PES University. How can I help you today?",
             greeting_audio_url="/static/audio/greeting_en.mp3",
-            language_prompt="Please speak in English, Kannada, or Hindi."
+            language_prompt="Please speak in English, Kannada, or Hindi.",
         )
+
 
 class ASRService:
     async def transcribe(self, request: ASRRequest) -> ASRResponse:
@@ -40,8 +41,9 @@ class ASRService:
             detected_language="en",
             confidence=0.95,
             duration_ms=3000,
-            latency_ms=480
+            latency_ms=480,
         )
+
 
 class RIARService:
     async def classify(self, request: RIARRequest) -> RIARResponse:
@@ -53,7 +55,7 @@ class RIARService:
             refined_query=request.query,
             domain="admissions",
             routing_confidence=0.9,
-            requires_clarification=False
+            requires_clarification=False,
         )
 
     async def clarify(self, request: ClarifyRequest) -> ClarifyResponse:
@@ -62,8 +64,9 @@ class RIARService:
             refined_query=f"{request.original_query} -> {request.clarification_response}",
             domain="admissions",
             routing_confidence=0.9,
-            ready_for_rag=True
+            ready_for_rag=True,
         )
+
 
 class RouteService:
     async def route(self, request: RouteRequest) -> RouteResponse:
@@ -76,12 +79,13 @@ class RouteService:
                     chunk_id="mock_chunk_1",
                     source="mock_source.md",
                     text="Mock admission info",
-                    relevance_score=0.9
+                    relevance_score=0.9,
                 )
             ],
             context_window="Mock admission info context",
-            retrieval_latency_ms=100
+            retrieval_latency_ms=100,
         )
+
 
 class RAGService:
     async def generate(self, request: RAGRequest) -> RAGResponse:
@@ -92,8 +96,9 @@ class RAGService:
             model_used="mock_model",
             tokens_used=100,
             generation_latency_ms=500,
-            confidence_score=0.9
+            confidence_score=0.9,
         )
+
 
 class TTSService:
     async def synthesize(self, request: TTSRequest) -> TTSResponse:
@@ -102,8 +107,9 @@ class TTSService:
             audio_url="/static/mock_response.mp3",
             duration_seconds=5.0,
             format="mp3",
-            latency_ms=300
+            latency_ms=300,
         )
+
 
 detection_service = DetectionService()
 asr_service = ASRService()

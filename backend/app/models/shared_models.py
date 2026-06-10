@@ -7,6 +7,7 @@ from typing import Any, Dict, List, Optional
 # Detection Models
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 @dataclass
 class BoundingBox:
     x: int
@@ -39,6 +40,7 @@ class DetectionEvent:
             "frame_height": self.frame_height,
         }
 
+
 @dataclass
 class KioskEvent:
     event_type: str
@@ -51,22 +53,22 @@ class KioskEvent:
             "event_type": self.event_type,
             "camera_id": self.camera_id,
             "timestamp": self.timestamp.isoformat(),
-            "payload": self.payload
+            "payload": self.payload,
         }
-
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Speech Models
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 @dataclass
 class ASRResult:
     session_id: str
     turn_id: int
     transcript: str
-    transcript_en: Optional[str]   # English translation if original was KN/HI
-    detected_language: str         # "en" | "kn" | "hi"
+    transcript_en: Optional[str]  # English translation if original was KN/HI
+    detected_language: str  # "en" | "kn" | "hi"
     confidence: float
     duration_ms: int
     latency_ms: int
@@ -77,7 +79,7 @@ class TTSResult:
     session_id: str
     audio_url: str
     duration_seconds: float
-    format: str                    # "mp3" | "wav"
+    format: str  # "mp3" | "wav"
     latency_ms: int
 
 
@@ -88,8 +90,13 @@ class TTSResult:
 AMBIGUITY_TYPES = ["CLEAR", "SEMANTIC", "CONTEXTUAL", "CROSS_DOMAIN"]
 SUPPORTED_LANGUAGES = ["en", "kn", "hi"]
 SUPPORTED_DOMAINS = [
-    "admissions", "academics", "placements",
-    "research", "student_services", "navigation", "general"
+    "admissions",
+    "academics",
+    "placements",
+    "research",
+    "student_services",
+    "navigation",
+    "general",
 ]
 
 
@@ -104,28 +111,31 @@ class ProbeChunk:
 @dataclass
 class RIARResult:
     """Output of the RIAR pipeline. This is the contract Haseeb must maintain."""
+
     ambiguity_detected: bool
-    ambiguity_score: float                    # 0.0 to 1.0
-    ambiguity_type: str                       # From AMBIGUITY_TYPES
+    ambiguity_score: float  # 0.0 to 1.0
+    ambiguity_type: str  # From AMBIGUITY_TYPES
     clarification_question: Optional[str]
     refined_query: str
-    domain: Optional[str]                     # From SUPPORTED_DOMAINS
+    domain: Optional[str]  # From SUPPORTED_DOMAINS
     routing_confidence: float
     probe_chunks: List[ProbeChunk] = field(default_factory=list)
 
     def __post_init__(self):
-        assert self.ambiguity_type in AMBIGUITY_TYPES, \
-            f"Invalid ambiguity type: {self.ambiguity_type}"
-        assert 0.0 <= self.ambiguity_score <= 1.0, \
-            f"Ambiguity score must be in [0, 1]: {self.ambiguity_score}"
+        assert (
+            self.ambiguity_type in AMBIGUITY_TYPES
+        ), f"Invalid ambiguity type: {self.ambiguity_type}"
+        assert (
+            0.0 <= self.ambiguity_score <= 1.0
+        ), f"Ambiguity score must be in [0, 1]: {self.ambiguity_score}"
         if self.domain:
-            assert self.domain in SUPPORTED_DOMAINS, \
-                f"Invalid domain: {self.domain}"
+            assert self.domain in SUPPORTED_DOMAINS, f"Invalid domain: {self.domain}"
 
 
 @dataclass
 class RefinedQuery:
     """Output of RIAR refinement step. Produced after user provides clarification."""
+
     refined_query: str
     domain: str
     routing_confidence: float
@@ -139,9 +149,11 @@ class RefinedQuery:
 # Agent Models
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 @dataclass
 class Chunk:
     """A retrieved knowledge chunk. This is the contract Gowtham must maintain."""
+
     chunk_id: str
     source: str
     text: str
@@ -154,6 +166,7 @@ class Chunk:
 @dataclass
 class DomainResponse:
     """Output of a domain agent. This is the contract Gowtham must maintain."""
+
     answer: str
     citations: List[str]
     confidence: float
@@ -172,10 +185,11 @@ class DomainResponse:
 # Session Models
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 @dataclass
 class Turn:
     turn_id: int
-    role: str                     # "user" | "assistant"
+    role: str  # "user" | "assistant"
     text: str
     timestamp: datetime = field(default_factory=datetime.utcnow)
     raw_audio_path: Optional[str] = None
@@ -197,10 +211,11 @@ class SessionObject:
     The canonical session object that flows through the entire pipeline.
     All modules read from and write to this object via the Session Manager.
     """
+
     session_id: str = field(default_factory=lambda: f"ses_{uuid.uuid4().hex[:12]}")
     created_at: datetime = field(default_factory=datetime.utcnow)
     updated_at: datetime = field(default_factory=datetime.utcnow)
-    status: str = "active"                    # "active" | "closed" | "error"
+    status: str = "active"  # "active" | "closed" | "error"
 
     # Detection context
     person_detection: Optional[DetectionEvent] = None
@@ -217,18 +232,13 @@ class SessionObject:
     rag_response: Optional[DomainResponse] = None
 
     # Avatar state
-    avatar_state: str = "idle"                # "idle" | "greeting" | "listening" | "processing" | "speaking"
+    avatar_state: str = "idle"  # "idle" | "greeting" | "listening" | "processing" | "speaking"
 
     # Performance metrics
     metrics: SessionMetrics = field(default_factory=SessionMetrics)
 
     def add_turn(self, role: str, text: str, **kwargs) -> Turn:
-        turn = Turn(
-            turn_id=len(self.turns) + 1,
-            role=role,
-            text=text,
-            **kwargs
-        )
+        turn = Turn(turn_id=len(self.turns) + 1, role=role, text=text, **kwargs)
         self.turns.append(turn)
         self.updated_at = datetime.utcnow()
         return turn
@@ -241,4 +251,5 @@ class SessionObject:
     def to_dict(self) -> dict:
         """Serialize for storage in Redis/SQLite."""
         import dataclasses
+
         return dataclasses.asdict(self)

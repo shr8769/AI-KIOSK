@@ -6,7 +6,7 @@ Owner: Harsha (Engineering Lead)
 import logging
 import uuid
 from datetime import datetime
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -43,10 +43,10 @@ async def ingest_event(request: EventRequest):
         # if active_session:
         #    logger.info("Session already active, ignoring duplicate PERSON_DETECTED.")
         #    return EventResponse(status="success", action_taken="ignored_duplicate", session_id=active_session)
-        
+
         session_id = f"ses_{uuid.uuid4().hex[:12]}"
         logger.info(f"Creating new session {session_id} for camera {request.camera_id}")
-        
+
         # TODO: Save session to Redis via SessionManager
         # TODO: Trigger avatar greeting state change via WebSocket
 
@@ -54,7 +54,7 @@ async def ingest_event(request: EventRequest):
             status="success",
             action_taken="session_created",
             session_id=session_id,
-            message="Welcome to PES University."
+            message="Welcome to PES University.",
         )
 
     elif request.event_type == "PERSON_LEFT":
@@ -62,15 +62,11 @@ async def ingest_event(request: EventRequest):
         # active_session = await redis.get(f"active_camera:{request.camera_id}")
         # if not active_session:
         #    return EventResponse(status="success", action_taken="ignored_no_session")
-        
+
         logger.info(f"Closing session for camera {request.camera_id}")
         # TODO: Retrieve session, compute duration, close in Redis + write to SQLite
-        
-        return EventResponse(
-            status="success",
-            action_taken="session_closed",
-            session_id="dummy_id"
-        )
+
+        return EventResponse(status="success", action_taken="session_closed", session_id="dummy_id")
 
     elif request.event_type == "HEARTBEAT":
         logger.debug(f"Heartbeat from {request.camera_id}: {request.payload}")

@@ -3,10 +3,11 @@ Route Classification Route — POST /route
 Owner: Harsha
 """
 
+import logging
+from typing import List, Optional
+
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import List, Optional
-import logging
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -32,7 +33,7 @@ class RouteResponse(BaseModel):
 async def route_to_domain(request: RouteRequest):
     """
     Route query to appropriate domain (admissions, placements, academics, etc).
-    
+
     TODO Week 2:
     - Use domain classifier model
     - Return top-k matching documents
@@ -43,5 +44,5 @@ async def route_to_domain(request: RouteRequest):
         domain=request.domain,
         confidence=0.92,
         context_window="[MOCK] B.Tech admissions requirement documents",
-        top_k_results=[]
+        top_k_results=[],
     )

@@ -1,7 +1,7 @@
-from pydantic import BaseModel, Field
-from typing import Optional, List, Dict, Any
 from datetime import datetime
-from app.models.shared_models import Turn
+from typing import Any, List, Optional
+
+from pydantic import BaseModel, Field
 
 # ── /detect ───────────────────────────────────
 

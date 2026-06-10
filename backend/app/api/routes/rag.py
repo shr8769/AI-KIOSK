@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 router = APIRouter()
 
 @router.post("/rag")
@@ -6,7 +7,7 @@ async def generate_answer():
     """
     Generate grounded answer from retrieved context.
     Owner: Harsha (endpoint), Gowtham (domain agent logic)
-    
+
     TODO Week 3:
     - Accept session_id, query, context, domain, language
     - Call LLM with context to generate grounded answer

@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 router = APIRouter()
 
 @router.get("/session/{session_id}")

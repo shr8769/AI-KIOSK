@@ -4,12 +4,13 @@ Owner: Harsha (Engineering Lead) — endpoint
        Haseeb (Project Lead) — fires events from detection module
 """
 
-from fastapi import APIRouter
-from pydantic import BaseModel
+import logging
+import uuid
 from datetime import datetime
 from typing import Optional
-import uuid
-import logging
+
+from fastapi import APIRouter
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

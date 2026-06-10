@@ -4,6 +4,7 @@ from app.core.session_store import get_session
 from app.models.schemas import (
     ASRRequest,
     ASRResponse,
+    ClarifyRequest,
     ClarifyResponse,
     RAGRequest,
     RAGResponse,

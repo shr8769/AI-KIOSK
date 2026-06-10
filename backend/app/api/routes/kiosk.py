@@ -10,10 +10,13 @@ from app.models.schemas import (
     RAGResponse,
     RIARRequest,
     RIARResponse,
-    SessionCreateRequest,
-    SessionResponse,
+    ClarifyRequest,
+    ClarifyResponse,
+    RouteRequest,
+    RouteResponse,
     TTSRequest,
     TTSResponse,
+    SessionHistoryResponse,
 )
 from app.services.mock_services import (
     asr_service,
@@ -21,6 +24,7 @@ from app.services.mock_services import (
     rag_service,
     riar_service,
     tts_service,
+    route_service,
 )
 
 router = APIRouter()
@@ -33,37 +37,26 @@ async def health():
     return {"status": "ok", "service": "ai-kiosk-backend"}
 
 
-# ── Sessions ──────────────────────────────────
-
-@router.post("/session", response_model=SessionResponse, tags=["session"])
-async def session_create(body: SessionCreateRequest):
-    session = await create_session(metadata=body.metadata)
-    return SessionResponse(session_id=session.session_id, created_at=session.created_at, status=session.status)
-
-
-@router.get("/session/{session_id}", response_model=SessionResponse, tags=["session"])
-async def session_get(session_id: str):
-    session = await get_session(session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
-    return SessionResponse(session_id=session.session_id, created_at=session.created_at, status=session.status)
-
-
-@router.delete("/session/{session_id}", tags=["session"])
-async def session_close(session_id: str):
-    ok = await close_session(session_id)
-    if not ok:
-        raise HTTPException(status_code=404, detail="Session not found or already closed")
-    return {"success": True, "session_id": session_id, "status": "closed"}
-
-
 # ── /detect ───────────────────────────────────
 
 @router.post("/detect", response_model=DetectResponse, tags=["pipeline"])
 async def detect(body: DetectRequest, request: Request):
-    result = await detection_service.detect(body.frame_base64, body.source)
-    result.request_id = getattr(request.state, "request_id", None)
+    # DetectionEvent triggers session creation
+    session = await create_session(metadata={"camera_id": body.camera_id})
+    result = await detection_service.detect(session.session_id, body)
     return result
+
+@router.delete("/detect/{session_id}", tags=["pipeline"])
+async def session_close(session_id: str):
+    ok = await close_session(session_id)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Session not found or already closed")
+    return {
+        "session_id": session_id,
+        "action": "session_closed",
+        "duration_seconds": 0,
+        "turns_completed": 0
+    }
 
 
 # ── /asr ─────────────────────────────────────
@@ -73,8 +66,7 @@ async def asr(body: ASRRequest, request: Request):
     session = await get_session(body.session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-    result = await asr_service.transcribe(body.audio_base64, body.session_id, body.language)
-    result.request_id = getattr(request.state, "request_id", None)
+    result = await asr_service.transcribe(body)
     return result
 
 
@@ -85,8 +77,26 @@ async def riar(body: RIARRequest, request: Request):
     session = await get_session(body.session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-    result = await riar_service.classify(body.session_id, body.transcript, body.language)
-    result.request_id = getattr(request.state, "request_id", None)
+    result = await riar_service.classify(body)
+    return result
+
+@router.post("/riar/clarify", response_model=ClarifyResponse, tags=["pipeline"])
+async def riar_clarify(body: ClarifyRequest, request: Request):
+    session = await get_session(body.session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    result = await riar_service.clarify(body)
+    return result
+
+
+# ── /route ───────────────────────────────────
+
+@router.post("/route", response_model=RouteResponse, tags=["pipeline"])
+async def route_query(body: RouteRequest, request: Request):
+    session = await get_session(body.session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    result = await route_service.route(body)
     return result
 
 
@@ -97,10 +107,7 @@ async def rag(body: RAGRequest, request: Request):
     session = await get_session(body.session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-    result = await rag_service.retrieve_and_generate(
-        body.session_id, body.query, body.intent, body.language, body.top_k
-    )
-    result.request_id = getattr(request.state, "request_id", None)
+    result = await rag_service.generate(body)
     return result
 
 
@@ -111,8 +118,20 @@ async def tts(body: TTSRequest, request: Request):
     session = await get_session(body.session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
-    result = await tts_service.synthesise(
-        body.session_id, body.text, body.language, body.voice_id
-    )
-    result.request_id = getattr(request.state, "request_id", None)
+    result = await tts_service.synthesize(body)
     return result
+
+
+# ── /session ─────────────────────────────────
+
+@router.get("/session/{session_id}/history", response_model=SessionHistoryResponse, tags=["session"])
+async def session_history(session_id: str):
+    session = await get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    return SessionHistoryResponse(
+        session_id=session_id,
+        turns=[],
+        total_turns=0,
+        session_duration_seconds=0
+    )

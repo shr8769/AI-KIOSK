@@ -3,15 +3,23 @@ Mock implementations of every service mapping to our API contracts.
 """
 
 from app.models.schemas import (
-    DetectRequest, DetectResponse,
-    ASRRequest, ASRResponse,
-    RIARRequest, RIARResponse,
-    ClarifyRequest, ClarifyResponse,
-    RouteRequest, RouteResponse,
-    RAGRequest, RAGResponse,
-    TTSRequest, TTSResponse,
-    RetrievedChunkModel
+    ASRRequest,
+    ASRResponse,
+    ClarifyRequest,
+    ClarifyResponse,
+    DetectRequest,
+    DetectResponse,
+    RAGRequest,
+    RAGResponse,
+    RetrievedChunkModel,
+    RIARRequest,
+    RIARResponse,
+    RouteRequest,
+    RouteResponse,
+    TTSRequest,
+    TTSResponse,
 )
+
 
 class DetectionService:
     async def detect(self, session_id: str, request: DetectRequest) -> DetectResponse:

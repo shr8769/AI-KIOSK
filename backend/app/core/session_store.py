@@ -45,6 +45,12 @@ async def get_redis() -> aioredis.Redis:
         _redis = aioredis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
     return _redis
 
+async def close_redis():
+    global _redis
+    if _redis is not None:
+        await _redis.aclose()
+        _redis = None
+
 
 async def init_db():
     os.makedirs(os.path.dirname(settings.SQLITE_DB_PATH) or ".", exist_ok=True)

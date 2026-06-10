@@ -376,7 +376,7 @@ def test_admissions_agent_interface():
 | `avatar/` | Haseeb | Haseeb |
 | `backend/` | Harsha | Harsha |
 | `knowledge/` | Gowtham | Gowtham |
-| `agents/` | Gowtham (domain), Harsha (coordinator) | Both must approve |
+| `agents/` | Gowtham (domain), Haseeb (coordinator) | Both must approve |
 | `backend/app/models/` | Harsha (gatekeeper) | Harsha — any schema change |
 | `tests/integration/` | All | Any 1 approval |
 | `tests/mocks/` | All | Any 1 approval |

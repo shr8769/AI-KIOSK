@@ -321,7 +321,7 @@ turn_id: 1
 ### POST /route
 
 **Purpose:** Route refined query to appropriate domain agent.
-**Owner:** Harsha (coordinator)
+**Owner:** Haseeb (coordinator)
 
 #### Request
 

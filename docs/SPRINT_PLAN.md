@@ -151,16 +151,16 @@ All three engineers have working dev environment and can run the skeleton backen
 | H1.3 | Implement ambiguity classification (RIAR Step 3) | 4h | `riar/classifiers/ambiguity_classifier.py` |
 | H1.4 | Write RIAR unit tests (all 4 ambiguity types) | 3h | `riar/tests/test_riar_pipeline.py` |
 | H1.5 | Frontend: Display transcript + RIAR state to screen | 2h | Kiosk UI shows current state |
+| H1.6 | Implement coordinator agent routing logic | 4h | `agents/coordinator/coordinator.py` |
+| H1.7 | Implement `/route` endpoint | 2h | Routes to correct domain agent |
 
 #### Harsha
 | # | Task | Est. Hours | Deliverable |
 |---|---|---|---|
 | H2.1 | Implement `/riar` endpoint (calls Haseeb's pipeline) | 2h | Real RIAR responses |
-| H2.2 | Implement coordinator agent routing logic | 4h | `agents/coordinator/coordinator.py` |
-| H2.3 | Implement `/route` endpoint | 2h | Routes to correct domain agent |
-| H2.4 | Implement `/rag` endpoint (calls domain agent + LLM) | 3h | Returns grounded answer |
-| H2.5 | Add full session turn logging to DB | 2h | Every turn saved to SQLite |
-| H2.6 | Kannada + Hindi TTS integration | 3h | Multilingual TTS working |
+| H2.2 | Implement `/rag` endpoint (calls domain agent + LLM) | 3h | Returns grounded answer |
+| H2.3 | Add full session turn logging to DB | 2h | Every turn saved to SQLite |
+| H2.4 | Kannada + Hindi TTS integration | 3h | Multilingual TTS working |
 
 #### Gowtham
 | # | Task | Est. Hours | Deliverable |
@@ -198,16 +198,16 @@ All three engineers have working dev environment and can run the skeleton backen
 | H1.4 | Multilingual clarification questions (KN, HI) | 2h | Clarification in user language |
 | H1.5 | Avatar: show listening animation while waiting for clarification | 2h | UX polish |
 | H1.6 | Session memory: RIAR uses prior turns as context | 3h | Multi-turn RIAR context |
+| H1.7 | Implement cross-domain agent dispatch (parallel calls) | 3h | Two agents queried simultaneously |
+| H1.8 | Implement response merger for cross-domain queries | 2h | Coherent merged answer |
 
 #### Harsha
 | # | Task | Est. Hours | Deliverable |
 |---|---|---|---|
 | H2.1 | Implement `/riar/clarify` endpoint | 2h | Accepts clarification response |
-| H2.2 | Implement cross-domain agent dispatch (parallel calls) | 3h | Two agents queried simultaneously |
-| H2.3 | Implement response merger for cross-domain queries | 2h | Coherent merged answer |
-| H2.4 | Add latency monitoring to all endpoints | 2h | Metrics logged to DB |
-| H2.5 | Add retry logic for LLM API failures | 2h | System degrades gracefully |
-| H2.6 | Performance test: measure E2E latency on hardware | 3h | Latency report |
+| H2.2 | Add latency monitoring to all endpoints | 2h | Metrics logged to DB |
+| H2.3 | Add retry logic for LLM API failures | 2h | System degrades gracefully |
+| H2.4 | Performance test: measure E2E latency on hardware | 3h | Latency report |
 
 #### Gowtham
 | # | Task | Est. Hours | Deliverable |
@@ -244,15 +244,15 @@ All three engineers have working dev environment and can run the skeleton backen
 | H1.3 | Fix any RIAR bugs found during integration | 4h | RIAR stable in full flow |
 | H1.4 | Integration test: 20 full-flow queries | 3h | Results logged |
 | H1.5 | Frontend UI polish (kiosk display layout) | 3h | Clean, presentable UI |
+| H1.6 | Wire ALL endpoints into complete flow (orchestrator) | 4h | One request triggers all steps |
 
 #### Harsha
 | # | Task | Est. Hours | Deliverable |
 |---|---|---|---|
-| H2.1 | Wire ALL endpoints into complete flow (orchestrator) | 4h | One request triggers all steps |
-| H2.2 | Fix integration bugs from E2E testing | 5h | System stable |
-| H2.3 | Load test: 10 consecutive sessions | 2h | No memory leaks / crashes |
-| H2.4 | Session cleanup on person exit (DELETE /detect) | 2h | Clean session lifecycle |
-| H2.5 | API documentation auto-generation check | 1h | Swagger UI accurate |
+| H2.1 | Fix integration bugs from E2E testing | 5h | System stable |
+| H2.2 | Load test: 10 consecutive sessions | 2h | No memory leaks / crashes |
+| H2.3 | Session cleanup on person exit (DELETE /detect) | 2h | Clean session lifecycle |
+| H2.4 | API documentation auto-generation check | 1h | Swagger UI accurate |
 
 #### Gowtham
 | # | Task | Est. Hours | Deliverable |

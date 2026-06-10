@@ -200,7 +200,7 @@ Step 7: GROUNDED ANSWER GENERATION
 ---
 
 ### 2.4 Coordinator Agent
-**Owner:** Harsha (implementation) / Haseeb (design) | `agents/coordinator/`
+**Owner:** Haseeb (implementation & design) | `agents/coordinator/`
 
 The Coordinator Agent is the **central orchestrator**. It:
 

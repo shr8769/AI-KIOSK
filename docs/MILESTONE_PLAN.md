@@ -152,7 +152,7 @@
 
 ## M4 — Multi-Agent RAG
 **Target:** End of Week 4 (Friday)
-**Owner:** Haseeb (RIAR complete), Gowtham (all agents), Harsha (orchestration)
+**Owner:** Haseeb (RIAR complete & orchestration), Gowtham (all agents)
 **Tag:** `v0.4.0-multiagent`
 
 ### Acceptance Criteria

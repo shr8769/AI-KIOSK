@@ -95,8 +95,8 @@
 | WebSocket Handler | C | A/R | I | Real-time session communication |
 | Session Manager | C | A/R | I | Redis + SQLite session handling |
 | Session API | I | A/R | I | Harsha owns all session endpoints |
-| Coordinator Agent | C | A/R | C | Routing logic |
-| Route API `/route` | I | A/R | C | Harsha owns |
+| Coordinator Agent | A/R | C | C | Routing logic |
+| Route API `/route` | A/R | C | C | Haseeb owns |
 | RAG API `/rag` | C | A/R | C | Harsha implements, Gowtham provides logic |
 | API Gateway / Rate Limiting | I | A/R | I | Harsha owns |
 | API Documentation (OpenAPI) | C | A/R | I | Auto-generated via FastAPI |
@@ -127,7 +127,7 @@
 
 | Module | Haseeb | Harsha | Gowtham | Notes |
 |---|---|---|---|---|
-| Agent Base Class / Interface | C | A/R | C | Harsha defines interface |
+| Agent Base Class / Interface | A/R | C | C | Haseeb defines interface |
 | Admissions Agent | I | C | A/R | Gowtham implements |
 | Academics Agent | I | C | A/R | — |
 | Placements Agent | I | C | A/R | — |

@@ -3,7 +3,7 @@ FastAPI Application Entry Point
 Owner: Harsha (Engineering Lead)
 
 Starts the VidyaSahayak backend API server.
-Run: uvicorn backend.app.main:app --reload
+Run: uvicorn app.main:app --reload
 """
 
 from fastapi import FastAPI
@@ -11,8 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import logging
 
-from backend.app.api.routes import detect, asr, riar, route, rag, tts, session
-from backend.app.core.config import settings
+from app.api.routes import detect, asr, riar, route, rag, tts, session
+from app.core.config import settings
 
 logging.basicConfig(
     level=settings.LOG_LEVEL,
@@ -51,7 +51,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Register Routers ──────────────────────────────────────────────────────────
+# ── Register Routers ────────────────────────────────────────────────────────
 app.include_router(detect.router, prefix="/api/v1", tags=["Detection"])
 app.include_router(asr.router, prefix="/api/v1", tags=["ASR"])
 app.include_router(riar.router, prefix="/api/v1", tags=["RIAR"])

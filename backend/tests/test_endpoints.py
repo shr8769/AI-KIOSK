@@ -2,14 +2,19 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-client = TestClient(app)
+import pytest
 
-def test_health():
+@pytest.fixture
+def client():
+    with TestClient(app) as c:
+        yield c
+
+def test_health(client):
     r = client.get("/api/v1/health")
     assert r.status_code == 200
     assert r.json()["status"] == "ok"
 
-def test_detect():
+def test_detect(client):
     r = client.post("/api/v1/detect", json={
         "camera_id": "cam_front_01",
         "confidence": 0.95,
@@ -20,7 +25,7 @@ def test_detect():
     assert "session_id" in data
     assert data["action"] == "session_created"
 
-def test_full_pipeline():
+def test_full_pipeline(client):
     # Detect creates session
     r_detect = client.post("/api/v1/detect", json={
         "camera_id": "cam_front_01",

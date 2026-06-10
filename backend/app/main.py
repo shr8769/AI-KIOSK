@@ -11,11 +11,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import logging
 
-from app.api.routes import detect, asr, riar, route, rag, tts, session
+from app.api.routes import events, asr, riar, route, rag, tts, session
 from app.core.config import settings
 
 logging.basicConfig(
-    level=settings.LOG_LEVEL,
+    level=logging.DEBUG if settings.DEBUG else logging.INFO,
     format="%(asctime)s [%(name)s] %(levelname)s: %(message)s"
 )
 logger = logging.getLogger(__name__)
@@ -26,9 +26,7 @@ async def lifespan(app: FastAPI):
     """Startup and shutdown lifecycle."""
     logger.info("🚀 VidyaSahayak backend starting...")
     logger.info(f"   Mode: {'DEBUG' if settings.DEBUG else 'PRODUCTION'}")
-    logger.info(f"   Using real ASR: {settings.USE_REAL_ASR}")
-    logger.info(f"   Using real RIAR: {settings.USE_REAL_RIAR}")
-    logger.info(f"   Using real agents: {settings.USE_REAL_AGENTS}")
+    logger.info(f"   Using mock services: {settings.USE_MOCK_SERVICES}")
     yield
     logger.info("⏹  VidyaSahayak backend shutting down...")
 
@@ -52,7 +50,7 @@ app.add_middleware(
 )
 
 # ── Register Routers ────────────────────────────────────────────────────────
-app.include_router(detect.router, prefix="/api/v1", tags=["Detection"])
+app.include_router(events.router, prefix="/api/v1", tags=["Detection"])
 app.include_router(asr.router, prefix="/api/v1", tags=["ASR"])
 app.include_router(riar.router, prefix="/api/v1", tags=["RIAR"])
 app.include_router(route.router, prefix="/api/v1", tags=["Routing"])

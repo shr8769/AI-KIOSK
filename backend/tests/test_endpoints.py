@@ -12,7 +12,7 @@ class TestHealth:
     
     def test_health(self, client: TestClient):
         """Test health endpoint."""
-        r = client.get("/api/v1/health")
+        r = client.get("/health")
         assert r.status_code == 200
         data = r.json()
         assert data["status"] == "ok"
@@ -25,16 +25,19 @@ class TestDetection:
     
     def test_detect(self, client: TestClient):
         """Test person detection endpoint creates session."""
-        r = client.post("/api/v1/detect", json={
+        r = client.post("/api/v1/events", json={
+            "event_type": "PERSON_DETECTED",
             "camera_id": "cam_front_01",
-            "confidence": 0.95,
-            "bounding_box": {"x": 100, "y": 100, "w": 200, "h": 400}
+            "payload": {
+                "confidence": 0.95,
+                "bounding_box": {"x": 100, "y": 100, "w": 200, "h": 400}
+            }
         })
         assert r.status_code == 200
         data = r.json()
         assert "session_id" in data
-        assert data["action"] == "session_created"
-        assert "greeting_text" in data
+        assert data["action_taken"] == "session_created"
+        assert "message" in data
 
 
 class TestFullPipeline:
@@ -46,10 +49,13 @@ class TestFullPipeline:
         Detect → ASR → RIAR → Route → RAG → TTS
         """
         # Step 1: Detect person and create session
-        r_detect = client.post("/api/v1/detect", json={
+        r_detect = client.post("/api/v1/events", json={
+            "event_type": "PERSON_DETECTED",
             "camera_id": "cam_front_01",
-            "confidence": 0.95,
-            "bounding_box": {"x": 100, "y": 100, "w": 200, "h": 400}
+            "payload": {
+                "confidence": 0.95,
+                "bounding_box": {"x": 100, "y": 100, "w": 200, "h": 400}
+            }
         })
         assert r_detect.status_code == 200
         sid = r_detect.json()["session_id"]

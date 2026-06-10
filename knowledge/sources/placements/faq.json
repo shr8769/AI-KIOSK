@@ -1,0 +1,152 @@
+[
+    {
+        "topic": "Microsoft",
+        "question": "What is the typical recruitment process for software engineering roles at Microsoft during campus placements?",
+        "answer": "The process generally consists of an online coding assessment (usually on Codility, featuring 3 coding tasks), followed by 3 rounds of technical interviews focusing on data structures, algorithms, and system design, concluding with a final behavioral/AA (As Appropriate) interview."
+    },
+    {
+        "topic": "Microsoft",
+        "question": "What are the CGPA and academic eligibility requirements to apply for Microsoft placement drives?",
+        "answer": "Microsoft requires candidates to have a minimum cumulative CGPA of 7.0/10 (or 3.0/4.0) with no active backlogs. Students from Computer Science, Information Technology, and related circuit branches are eligible."
+    },
+    {
+        "topic": "Microsoft",
+        "question": "How can I prepare for the Microsoft online coding round?",
+        "answer": "Focus on topics like Arrays, Strings, Trees, Graphs, and Dynamic Programming. Practice solving medium-to-hard level problems on platforms like LeetCode or GeeksforGeeks, and ensure your code is optimized for both time and space complexity."
+    },
+    {
+        "topic": "Microsoft",
+        "question": "What technical topics are most heavily tested in Microsoft technical interviews?",
+        "answer": "Microsoft interviews strongly emphasize clean coding, basic data structures (Linked Lists, Binary Trees, Stacks, Queues), system architecture, and system design principles for senior/experienced roles."
+    },
+    {
+        "topic": "Microsoft",
+        "question": "Does Microsoft hire for non-technical roles, like Program Manager, through campus recruitment?",
+        "answer": "Yes, Microsoft frequently recruits for the Program Manager (PM) and Technical Program Manager (TPM) roles. These interviews focus on product design, problem-solving, analytical thinking, and behavioral questions rather than deep coding."
+    },
+    {
+        "topic": "Microsoft",
+        "question": "What is the structure of the Microsoft final round or 'As Appropriate' (AA) interview?",
+        "answer": "The AA round is conducted by a senior leader or hiring manager. It assesses cultural fit, long-term potential, alignment with Microsoft's growth mindset, and may include high-level technical or product architectural discussions."
+    },
+    {
+        "topic": "Amazon",
+        "question": "What is the structure of the online assessment (OA) for Amazon SDE roles?",
+        "answer": "The Amazon OA typically includes: (1) Debugging Section (7 questions, 20 mins), (2) Coding Section (2 coding questions, 70 mins), (3) Work Style Assessment (behavioral, 20 mins), and (4) Reasoning Logical Ability (35 mins)."
+    },
+    {
+        "topic": "Amazon",
+        "question": "How does Amazon evaluate candidates using their Leadership Principles in interviews?",
+        "answer": "Amazon evaluates candidates using behavioral questions mapped to their 16 Leadership Principles (e.g., Customer Obsession, Ownership, Bias for Action). You should structure your answers using the STAR (Situation, Task, Action, Result) method."
+    },
+    {
+        "topic": "Amazon",
+        "question": "What coding and system design concepts should I focus on for Amazon placements?",
+        "answer": "Concentrate on Hash Maps, Trees, Graphs, BFS/DFS, and Recursion. For SDE-2 or internship conversions, focus on object-oriented design patterns, database scaling, caching, and API design."
+    },
+    {
+        "topic": "Amazon",
+        "question": "What is the significance of the 'Bar Raiser' round in the Amazon recruitment process?",
+        "answer": "The 'Bar Raiser' is a crucial interview conducted by an objective evaluator outside the target team. They assess whether the candidate is better than 50% of current Amazonians in that role, focusing heavily on leadership principles and cognitive ability."
+    },
+    {
+        "topic": "Amazon",
+        "question": "Are there specific CGPA requirements or backlog policies for candidates applying to Amazon?",
+        "answer": "Amazon typically requires a minimum CGPA of 6.5/10.0 (or 2.8/4.0) at the time of application and allows no active backlogs. All past backlogs must be cleared before the date of joining."
+    },
+    {
+        "topic": "Amazon",
+        "question": "What are the typical package details and work location options offered by Amazon during campus placements?",
+        "answer": "Amazon SDE-1 campus offers usually consist of a base salary, sign-on bonuses (spread over year 1 and 2), and restricted stock units (RSUs). Primary locations include Seattle/Bay Area (US) or Bangalore/Hyderabad/Pune (India)."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Which semesters are students eligible to apply for official campus internships?",
+        "answer": "Undergraduate students are generally eligible to apply for official summer internships starting from the end of their 6th semester (pre-final year), which run during the summer break before their final year."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Can a student with active backlogs apply for internship selection drives?",
+        "answer": "Most tier-1 recruiting companies do not allow students with active backlogs to sit for internship selection. However, some startups and mid-size firms may permit applications if the candidate meets other skills criteria."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Is there a minimum CGPA requirement to qualify for on-campus internship interviews?",
+        "answer": "Yes, the placement cell enforces a default baseline criteria of 6.0 CGPA. However, individual companies can set their own cut-offs, which usually range from 7.0 to 8.5 CGPA."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Can I convert a summer internship into a full-time job offer (PPO), and how does the process work?",
+        "answer": "Yes, a high percentage of interns receive Pre-Placement Offers (PPOs). Companies evaluate performance throughout the internship and conduct a final review or presentation before making a full-time offer."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Are international students on visa status eligible to participate in the campus internship drives?",
+        "answer": "Yes, but eligibility depends on company policy. International students must ensure they have valid work authorization (such as CPT in the US) active before the start of the internship."
+    },
+    {
+        "topic": "Internship eligibility",
+        "question": "Can I pursue an off-campus internship alongside my regular semester coursework?",
+        "answer": "Students can pursue off-campus internships only if they obtain an official No Objection Certificate (NOC) from the Dean of Academics, ensuring the internship schedule does not conflict with mandatory class hours and exams."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "How and when do I register for the upcoming campus placement season?",
+        "answer": "Placement registration begins online through the college portal at the end of the pre-final year (usually June). You must upload verified transcripts, fill out details, and accept the placement policy code of conduct."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "What is the registration fee, if any, for registering with the placement cell?",
+        "answer": "There is a one-time non-refundable administrative fee of $50 (or local equivalent) collected during registration to cover resume verification, training portals, and interview infrastructure support."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "What happens if I miss the deadline for placement registration?",
+        "answer": "Missing the registration deadline will result in automatic debarment from the initial phase (Phase-1) of placement drives. Late registrations are only allowed in Phase-2 with a late penalty fee."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "Can I deregister or opt-out of the placement process once I have registered?",
+        "answer": "Yes, you can opt-out at any point by submitting a formal 'De-registration Form' signed by your academic advisor. Once opted-out, you will not be allowed to re-enter the campus placement pool."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "What are the rules and policies regarding holding multiple offers during the placement season?",
+        "answer": "Our university follows a 'One Student, One Job' policy. Once you secure an offer, you are excluded from future drives, unless the company falls into a higher category tier (e.g., Dream/Super Dream offer)."
+    },
+    {
+        "topic": "Placement registration",
+        "question": "What is a 'Dream Option' policy, and how can I utilize it to apply for a higher-paying company?",
+        "answer": "The Dream Option allows a student holding a job offer of a certain package to apply for a company offering a salary package that is at least 1.5 times (or higher) than their current offer."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "What is the approved resume format, and is there a page limit for campus placement resumes?",
+        "answer": "All resumes must follow the university's standardized single-page LaTeX/Word template. Two-page resumes are only allowed for post-graduate students with extensive research or work experience."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "How do I get my resume verified and approved by the placement cell before applying?",
+        "answer": "You must upload your resume along with supporting documents (certificates, grade sheets) to the placement portal. Student coordinators will verify each detail before approving your resume for company view."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "Should I include self-projects, research work, or only academic projects on my placement resume?",
+        "answer": "You should include a mix of all three. Highlight projects that demonstrate practical coding, system building, or research relevance to the roles you are targeting, prioritizing projects with live links or GitHub repos."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "What details must be verified and backed by certificates?",
+        "answer": "Academic GPAs, internships, work experiences, certifications, and positions of responsibility must be backed by official documents. Self-declared stats without verification will be rejected."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "Can I submit different resumes customized for different job profiles (e.g., SDE vs. Data Analyst)?",
+        "answer": "Yes, the placement portal allows students to create and verify up to three different resume profiles (e.g., Software Engineering, Data Analytics, and Core Engineering) to apply to relevant job openings."
+    },
+    {
+        "topic": "Resume requirements",
+        "question": "Are spelling errors or incorrect information on a verified resume subject to disciplinary action?",
+        "answer": "Yes. While spelling errors lead to warning flags, submitting falsified information (GPA inflation, fake projects/internships) results in immediate permanent debarment from the placement season."
+    }
+]

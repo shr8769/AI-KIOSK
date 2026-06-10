@@ -1,0 +1,152 @@
+[
+    {
+        "topic": "Eligibility",
+        "question": "What are the minimum academic requirements for undergraduate admissions?",
+        "answer": "To be eligible for undergraduate admission, applicants must have completed a high school diploma (or equivalent) with a minimum cumulative GPA of 3.0 on a 4.0 scale. Some competitive majors, particularly engineering and computer science, may have higher GPA requirements."
+    },
+    {
+        "topic": "Eligibility",
+        "question": "Do you accept transfer students, and what are the eligibility criteria for them?",
+        "answer": "Yes, we welcome transfer applicants. To be eligible, you must have completed at least 24 transferable semester credits at an accredited college or university with a minimum cumulative GPA of 2.5."
+    },
+    {
+        "topic": "Eligibility",
+        "question": "I have a gap year in my education. Am I still eligible to apply?",
+        "answer": "Yes, having an educational gap does not disqualify you. We recommend using your personal statement or submitting a brief resume to explain what activities, employment, or personal endeavors you undertook during that time."
+    },
+    {
+        "topic": "Eligibility",
+        "question": "What are the English language proficiency requirements for international students?",
+        "answer": "International applicants whose primary language of instruction was not English must submit official scores. We accept TOEFL (minimum 80 iBT), IELTS (minimum 6.5 band score), or Duolingo English Test (minimum score of 110)."
+    },
+    {
+        "topic": "Eligibility",
+        "question": "Can I apply if my final high school results are not yet released?",
+        "answer": "Yes, you can apply using your predicted grades or official transcripts covering your sophomore and junior years. If accepted, your admission will be conditional upon receiving your final official transcripts and graduation certificate."
+    },
+    {
+        "topic": "Eligibility",
+        "question": "Are there specific subject prerequisites for engineering and computer science programs?",
+        "answer": "Yes, applicants to engineering and computer science must have completed at least four years of high school mathematics (including Calculus) and three years of laboratory sciences (including Chemistry and Physics)."
+    },
+    {
+        "topic": "Fees",
+        "question": "How much is the tuition fee per semester for undergraduate programs?",
+        "answer": "For the current academic year, undergraduate tuition is $15,500 per semester for full-time domestic students taking between 12 and 18 credit hours. Part-time tuition is charged at a rate of $1,100 per credit hour."
+    },
+    {
+        "topic": "Fees",
+        "question": "Are there different fee structures for international students compared to domestic students?",
+        "answer": "Yes, international students are subject to an international tuition rate of $22,000 per semester. This rate covers additional university support services, mandatory international orientation, and visa processing compliance."
+    },
+    {
+        "topic": "Fees",
+        "question": "What auxiliary fees (housing, activities, insurance) should I expect in addition to tuition?",
+        "answer": "In addition to tuition, students should budget for a student activity and facilities fee ($450/semester), mandatory health insurance ($1,200/year, waiverable if you have equivalent coverage), and campus housing/dining packages (averaging $6,500/semester)."
+    },
+    {
+        "topic": "Fees",
+        "question": "What are the payment methods and installment options available for paying tuition fees?",
+        "answer": "Tuition can be paid via credit/debit card, e-check, domestic/international bank wire, or through our monthly installment plan, which divides the semester balance into four interest-free monthly payments for a nominal setup fee of $50."
+    },
+    {
+        "topic": "Fees",
+        "question": "Is the application fee refundable if my application is rejected?",
+        "answer": "No, the $75 application fee is non-refundable. This fee goes toward the administrative costs of processing, verifying, and evaluating candidate applications."
+    },
+    {
+        "topic": "Fees",
+        "question": "What happens if I miss the tuition payment deadline?",
+        "answer": "A late payment fee of $150 will be applied to your student account, and a financial hold will be placed. This hold prevents you from adding/dropping courses, registering for future terms, or obtaining official transcripts."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "What merit-based scholarships are available for incoming freshmen?",
+        "answer": "We offer a range of merit-based scholarships, from partial awards ($5,000 per year) up to full-tuition coverage. These are awarded automatically based on your cumulative GPA, standardized test scores (if submitted), and outstanding high school achievements."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "Do I need to submit a separate application to be considered for scholarships?",
+        "answer": "All applicants are automatically considered for general academic merit scholarships upon submitting their standard admission application. However, specialized awards (such as department-specific, athletic, or leadership scholarships) may require a separate application form."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "Are there financial aid or need-based scholarships available for students?",
+        "answer": "Yes, domestic students can apply for need-based financial aid (grants, loans, and work-study) by completing the Free Application for Federal Student Aid (FAFSA). International students can apply for need-based institutional aid using the CSS Profile."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "Can international students apply for scholarships and financial aid?",
+        "answer": "Yes, international students are eligible for all merit-based scholarships. While they are not eligible for federal US financial aid, we offer a limited number of need-aware institutional scholarships for qualified international applicants."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "What are the renewal criteria for maintaining my scholarship in subsequent years?",
+        "answer": "To renew your academic scholarship annually, you must maintain a cumulative GPA of 3.2 or higher, enroll as a full-time student completing at least 30 credits per academic year, and remain in good behavioral standing with the university."
+    },
+    {
+        "topic": "Scholarships",
+        "question": "Are there athletic or extracurricular scholarships offered by the university?",
+        "answer": "Yes, athletic scholarships are administered directly through the Athletics Department for NCAA Division II sports. We also offer scholarships for talent-based extracurriculars like marching band, orchestra, speech/debate, and theater."
+    },
+    {
+        "topic": "Documents required",
+        "question": "What documents do I need to submit with my online application?",
+        "answer": "You must submit your online application form, official high school transcripts, two letters of recommendation, a personal statement/essay, and a copy of your passport photo page (for international students only)."
+    },
+    {
+        "topic": "Documents required",
+        "question": "Do my academic transcripts need to be officially translated or evaluated?",
+        "answer": "If your transcripts are in a language other than English, you must submit both the native-language documents and a certified, literal English translation. Additionally, we require a course-by-course evaluation from a NACES-approved service like WES."
+    },
+    {
+        "topic": "Documents required",
+        "question": "Are letters of recommendation mandatory, and who should write them?",
+        "answer": "Yes, two letters of recommendation are mandatory. At least one must come from a teacher in a core academic subject (Math, Science, English, or Social Studies) who taught you in your junior or senior year. The second can be from a guidance counselor or mentor."
+    },
+    {
+        "topic": "Documents required",
+        "question": "Should I submit a Statement of Purpose (SOP) or personal essay, and what should it cover?",
+        "answer": "Yes, a personal statement of 500-650 words is required. The essay should address your academic motivations, how you plan to contribute to the university community, and any unique personal experiences or challenges that have shaped your goals."
+    },
+    {
+        "topic": "Documents required",
+        "question": "How do I submit my standardized test scores (like SAT, ACT, GRE, or TOEFL)?",
+        "answer": "Official test scores must be sent directly from the testing agency (e.g., College Board or ETS) to our admissions office. Our institutional code is 4321. We do not accept photocopies or self-reported scores on transcripts."
+    },
+    {
+        "topic": "Documents required",
+        "question": "Do I need to submit a portfolio or project work for creative majors?",
+        "answer": "Yes, applicants to Fine Arts, Graphic Design, Architecture, and Music majors must submit a creative portfolio or schedule an audition. Specific portfolio requirements and submission links are provided on the respective department pages."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "What is the difference between Early Action, Early Decision, and Regular Decision deadlines?",
+        "answer": "Early Decision (Nov 1) is a binding agreement; you must enroll if accepted. Early Action (Nov 15) is non-binding, giving you an early admissions decision. Regular Decision (Jan 15) is our standard admission pool."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "When is the deadline to submit the online application for the Fall semester?",
+        "answer": "The application portal closes for Regular Decision Fall admission on January 15 at 11:59 PM EST. Applications received after this date will be reviewed on a space-available basis."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "What is the final date to submit missing supporting documents after the application deadline?",
+        "answer": "All supporting materials (transcripts, recommendations, test scores) must be received by our office within 14 calendar days of the application deadline (i.e., by January 29 for Regular Decision)."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "When are the scholarship application deadlines for incoming students?",
+        "answer": "To be prioritized for merit-based scholarships, your complete admission application must be submitted by November 15 (Early Action). Need-based financial aid documents (FAFSA/CSS) should be submitted by March 1."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "When will I receive the official admission decision after submitting my application?",
+        "answer": "Early Decision applicants receive their decisions by December 15. Early Action applicants are notified by January 15. Regular Decision applicants will receive their admission decisions by April 1."
+    },
+    {
+        "topic": "Important deadlines",
+        "question": "What is the deadline to accept the admission offer and pay the enrollment deposit?",
+        "answer": "The national confirmation deadline is May 1. You must accept your admission offer in the student portal and submit the $500 non-refundable enrollment deposit by 11:59 PM EST on this day to secure your spot."
+    }
+]

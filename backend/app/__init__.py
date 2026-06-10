@@ -1,1 +1,3 @@
-# AI-Kiosk Backend
+"""
+VidyaSahayak Backend App Package
+"""

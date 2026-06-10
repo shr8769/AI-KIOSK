@@ -1,25 +1,45 @@
-from fastapi import APIRouter
+"""
+RAG Route — POST /rag (Retrieval-Augmented Generation)
+Owner: Harsha
+"""
 
+from fastapi import APIRouter
+from pydantic import BaseModel
+from typing import Optional
+import logging
+
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
-@router.post("/rag")
-async def generate_answer():
-    """
-    Generate grounded answer from retrieved context.
-    Owner: Harsha (endpoint), Gowtham (domain agent logic)
 
-    TODO Week 3:
-    - Accept session_id, query, context, domain, language
-    - Call LLM with context to generate grounded answer
-    - Return answer with citations
+class RAGRequest(BaseModel):
+    session_id: str
+    query: str
+    context: Optional[str] = None
+    domain: str = "admissions"
+    language: str = "en"
+
+
+class RAGResponse(BaseModel):
+    session_id: str
+    answer: str
+    source_documents: list = []
+    confidence: float = 0.85
+
+
+@router.post("/rag", response_model=RAGResponse)
+async def retrieve_and_generate(request: RAGRequest):
     """
-    return {
-        "session_id": "ses_stub",
-        "answer": "[STUB] PES University B.Tech admissions are conducted via PESSAT. Please visit pessat.pes.edu to apply.",
-        "answer_en": "[STUB] PES University B.Tech admissions are conducted via PESSAT.",
-        "citations": ["mock/admissions.md:p1"],
-        "model_used": "mock",
-        "tokens_used": 0,
-        "generation_latency_ms": 100,
-        "confidence_score": 0.5
-    }
+    Retrieve relevant documents from knowledge base and generate answer using LLM.
+    
+    TODO Week 2:
+    - Query ChromaDB vector store
+    - Use OpenAI GPT-4 for answer generation
+    - Return sources and confidence
+    """
+    return RAGResponse(
+        session_id=request.session_id,
+        answer="[MOCK] To apply for B.Tech at PES University, visit our admissions portal...",
+        source_documents=[],
+        confidence=0.85
+    )

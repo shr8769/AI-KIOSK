@@ -1,0 +1,3 @@
+"""
+VidyaSahayak Backend Core Package
+"""

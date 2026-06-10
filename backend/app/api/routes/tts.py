@@ -1,22 +1,44 @@
-from fastapi import APIRouter
+"""
+TTS Route — POST /tts (Text-To-Speech)
+Owner: Harsha
+"""
 
+from fastapi import APIRouter
+from pydantic import BaseModel
+from typing import Optional
+import logging
+
+logger = logging.getLogger(__name__)
 router = APIRouter()
 
-@router.post("/tts")
-async def text_to_speech():
-    """
-    Convert text to speech audio.
-    Owner: Harsha
 
-    TODO Week 2:
-    - Accept text, language, voice_id, format
-    - Run TTS (Coqui / ElevenLabs / Google)
-    - Save audio file, return URL
+class TTSRequest(BaseModel):
+    session_id: str
+    text: str
+    language: str = "en"
+    voice_id: Optional[str] = None
+
+
+class TTSResponse(BaseModel):
+    session_id: str
+    audio_url: str
+    duration_ms: int
+    language: str
+
+
+@router.post("/tts", response_model=TTSResponse)
+async def synthesize_speech(request: TTSRequest):
     """
-    return {
-        "session_id": "ses_stub",
-        "audio_url": "/static/audio/stub_response.mp3",
-        "duration_seconds": 5.0,
-        "format": "mp3",
-        "latency_ms": 340
-    }
+    Convert text to speech using TTS engine (Coqui or OpenAI).
+    
+    TODO Week 2:
+    - Use real TTS engine
+    - Generate and store audio file
+    - Return valid audio URL
+    """
+    return TTSResponse(
+        session_id=request.session_id,
+        audio_url="/static/audio/response.mp3",
+        duration_ms=5000,
+        language=request.language
+    )

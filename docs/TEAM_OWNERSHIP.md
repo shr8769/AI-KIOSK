@@ -44,7 +44,7 @@
 | Module | Haseeb | Harsha | Gowtham | Notes |
 |---|---|---|---|---|
 | Camera Interface | A/R | C | I | OpenCV camera setup |
-| YOLOv8 Integration | A/R | I | I | Model config + inference |
+| YOLO11 Integration | A/R | I | I | Model config + inference |
 | Presence Detection Logic | A/R | C | I | ROI + threshold tuning |
 | Session Trigger Event | A/R | C | I | Haseeb fires event |
 | Detection API `/detect` | C | A/R | I | Harsha implements endpoint |

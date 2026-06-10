@@ -88,7 +88,7 @@ All three engineers have working dev environment and can run the skeleton backen
 #### Haseeb
 | # | Task | Est. Hours | Deliverable |
 |---|---|---|---|
-| H1.1 | Implement real YOLOv8 person detection (not stub) | 4h | `detection/detector.py` (real) |
+| H1.1 | Implement real YOLO11 person detection (not stub) | 4h | `detection/detector.py` (real) |
 | H1.2 | Implement presence monitoring loop (ROI, threshold) | 3h | `detection/presence_monitor.py` |
 | H1.3 | Connect detection → POST /detect → session created | 2h | End-to-end detection trigger |
 | H1.4 | Avatar greeting animation + state transitions | 3h | IDLE → GREETING → LISTENING |

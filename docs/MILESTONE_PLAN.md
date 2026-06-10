@@ -71,7 +71,7 @@
 
 **Person Detection:**
 - [ ] Camera feed is captured from physical webcam
-- [ ] YOLOv8 detects a person in the frame with confidence > 0.6
+- [ ] YOLO11 detects a person in the frame with confidence > 0.6
 - [ ] Person must be present for 1.5+ seconds before trigger fires
 - [ ] Detection event POSTs to backend and creates session
 - [ ] Person leaving closes session within 5 seconds

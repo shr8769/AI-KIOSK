@@ -23,7 +23,7 @@ The system's core research contribution is the **RIAR Framework** (Retrieval-Inf
 
 | Capability | Technology | Owner |
 |---|---|---|
-| Person Detection | OpenCV + YOLOv8 | Haseeb |
+| Person Detection | OpenCV + YOLO11 | Haseeb |
 | Voice Interaction | Whisper ASR + TTS | Harsha |
 | Multilingual Support | EN / KN / HI | Gowtham |
 | Ambiguity Resolution | RIAR Framework | Haseeb |

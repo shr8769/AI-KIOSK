@@ -150,13 +150,13 @@ Integration typically takes longer than estimated, especially in research projec
 **Owner:** Harsha
 
 **Description:**
-Whisper, YOLOv8, and MuseTalk all benefit significantly from GPU acceleration. If the kiosk machine lacks a GPU or CUDA setup fails, performance will be unacceptable.
+Whisper, YOLO11, and MuseTalk all benefit significantly from GPU acceleration. If the kiosk machine lacks a GPU or CUDA setup fails, performance will be unacceptable.
 
 **Mitigation Strategies:**
 1. **Immediate:** Verify CUDA availability on kiosk machine in Week 1. Don't wait until Week 5.
 2. **Cloud fallback:** If no local GPU, use OpenAI API for Whisper (cloud ASR) and LLM. More expensive but functional.
 3. **Model downsizing:** Use Whisper `base` or `small` on CPU if needed. Accept lower accuracy.
-4. **Quantized models:** Use int8-quantized Whisper and YOLOv8 models for CPU-acceptable performance.
+4. **Quantized models:** Use int8-quantized Whisper and YOLO11 models for CPU-acceptable performance.
 
 ---
 

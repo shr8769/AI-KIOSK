@@ -25,7 +25,7 @@ class SessionTrigger:
         """
         try:
             url = f"{self.backend_url}/api/v1/detect"
-            response = requests.post(url, json=event.to_dict(), timeout=2.0)
+            response = requests.post(url, json=event.to_dict(), timeout=10.0)
             response.raise_for_status()
             data = response.json()
             logger.info(f"Session created successfully: {data.get('session_id')}")
@@ -40,7 +40,7 @@ class SessionTrigger:
         """
         try:
             url = f"{self.backend_url}/api/v1/detect/{session_id}"
-            response = requests.delete(url, timeout=2.0)
+            response = requests.delete(url, timeout=10.0)
             response.raise_for_status()
             logger.info(f"Session {session_id} closed successfully")
             return True

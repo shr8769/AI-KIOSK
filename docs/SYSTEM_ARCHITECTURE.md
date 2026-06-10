@@ -30,7 +30,7 @@
 │  │   PERSON     │  │    ASR    │  │          RIAR            │   │
 │  │  DETECTION   │→ │ (Whisper) │→ │  (Ambiguity Resolution)  │   │
 │  │  (OpenCV +   │  │           │  │                          │   │
-│  │   YOLOv8)    │  └───────────┘  └────────────┬─────────────┘   │
+│  │   YOLO11)    │  └───────────┘  └────────────┬─────────────┘   │
 │  └──────────────┘                               │                  │
 │                                                 ▼                  │
 │                               ┌─────────────────────────────┐     │
@@ -78,7 +78,7 @@ detection/
 ├── presence_monitor.py   # Continuous presence monitoring loop
 ├── session_trigger.py    # Fires session creation event
 ├── models/
-│   ├── yolov8n.pt        # YOLOv8 nano model weights
+│   ├── yolov8n.pt        # YOLO11 nano model weights
 │   └── config.yaml       # Detection thresholds, ROI config
 └── tests/
     └── test_detector.py
@@ -86,7 +86,7 @@ detection/
 
 **Behavior:**
 - Runs continuous loop at 10 FPS on camera feed
-- Uses YOLOv8 for person class detection (class 0)
+- Uses YOLO11 for person class detection (class 0)
 - Applies presence threshold: person detected in ROI for >1.5 seconds → trigger
 - Publishes `PERSON_DETECTED` event via internal event bus / WebSocket to backend
 - On person exit: publishes `PERSON_LEFT` → session cleanup
@@ -385,7 +385,7 @@ Any component failure
 │  │  └──────────┘   └──────────────────┘  │   │
 │  └─────────────────────────────────────────┘   │
 │                                                  │
-│  GPU: CUDA for Whisper + YOLOv8                 │
+│  GPU: CUDA for Whisper + YOLO11                 │
 │  Camera: /dev/video0                            │
 │  Mic: ALSA hw:1,0                               │
 └─────────────────────────────────────────────────┘
@@ -411,7 +411,7 @@ Any component failure
 | Vector DB | ChromaDB | 0.5+ | Local, persistent, simple API |
 | Session Cache | Redis | 7.x | Low-latency hot store |
 | Persistent DB | SQLite (dev) / PostgreSQL (prod) | — | Session logs |
-| Person Detection | YOLOv8 + OpenCV | 8.x / 4.9 | Real-time, accurate |
+| Person Detection | YOLO11 + OpenCV | 8.x / 4.9 | Real-time, accurate |
 | TTS | Coqui TTS / ElevenLabs | — | Multilingual support |
 | Avatar | MuseTalk | Latest | Lip sync quality |
 | Frontend | React + Vite | 18+ / 5+ | Fast, component-based |

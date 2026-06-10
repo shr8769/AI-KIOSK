@@ -30,7 +30,7 @@ The team consists of three engineers: Haseeb, Harsha, and Gowtham.
 **Primary Ownership:** RIAR Framework, Multi-Agent Orchestration, Person Detection, Orb UI Interface, Frontend UX.
 - **RIAR Pipeline**: Implement the ambiguity detection, classification, and clarification generation logic.
 - **Multi-Agent Orchestration**: Implement the Coordinator Agent, routing logic, cross-domain dispatch, and response merging.
-- **Person Detection**: Train and deploy the YOLOv8 person detection pipeline to trigger kiosk sessions via computer vision.
+- **Person Detection**: Train and deploy the YOLO11 person detection pipeline to trigger kiosk sessions via computer vision.
 - **Orb State Machine**: Build the core state machine for the orb and hook it into CSS/WebGL for pulsing, spinning, and idle animations.
 - **Frontend / UX**: Design and build the React-based kiosk UI.
 

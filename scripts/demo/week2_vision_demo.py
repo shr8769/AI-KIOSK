@@ -1,44 +1,28 @@
-import sys
 import os
-import time
-import logging
-
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../"))
-from detection.detector import PersonDetector
-from detection.presence_monitor import PresenceMonitor
-from backend.app.models.shared_models import DetectionEvent
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+import sys
+import subprocess
 
 def main():
-    logger.info("Initializing YOLO11 Person Detector (yolo11n.pt)...")
-    # Make sure we use the correct model requested
-    detector = PersonDetector(model_path="yolo11n.pt")
+    print("==================================================")
+    print(" Running Week 2 Vision Demo (Event-Driven Mode)")
+    print("==================================================")
+    print("This will launch the production Edge Sensor Microservice")
+    print("with the OpenCV debug window enabled.")
+    print("")
     
-    def on_detected(event: DetectionEvent):
-        logger.info(f">>> SESSION STARTED: Person detected with confidence {event.confidence:.2f}")
-        logger.info(f"    Bounding Box: {event.bounding_box}")
-        
-    def on_left(event: DetectionEvent):
-        logger.info(f">>> SESSION ENDED: Person left frame for >5.0 seconds")
-
-    detector.on_person_detected(on_detected)
-    detector.on_person_left(on_left)
+    # Set the environment variable to enable debug window
+    env = os.environ.copy()
+    env["VISION_DEBUG"] = "1"
     
-    monitor = PresenceMonitor(detector)
-    # Enable debug mode to display the OpenCV window
-    monitor.debug = True
-    
-    logger.info("Starting live camera feed. Press 'q' in the video window to quit.")
-    monitor.start()
+    # Get the path to detection/main.py relative to this script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, "../../"))
+    main_py_path = os.path.join(project_root, "detection", "main.py")
     
     try:
-        while monitor._running:
-            time.sleep(1)
+        subprocess.run([sys.executable, main_py_path], env=env)
     except KeyboardInterrupt:
-        logger.info("Interrupted by user.")
-        monitor.stop()
+        print("\nDemo terminated.")
 
 if __name__ == "__main__":
     main()

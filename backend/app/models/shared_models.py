@@ -39,6 +39,22 @@ class DetectionEvent:
             "frame_height": self.frame_height,
         }
 
+@dataclass
+class KioskEvent:
+    event_type: str
+    camera_id: str
+    timestamp: datetime = field(default_factory=datetime.utcnow)
+    payload: Dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> dict:
+        return {
+            "event_type": self.event_type,
+            "camera_id": self.camera_id,
+            "timestamp": self.timestamp.isoformat(),
+            "payload": self.payload
+        }
+
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Speech Models

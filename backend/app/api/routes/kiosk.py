@@ -6,8 +6,9 @@ from app.models.schemas import (
     ASRResponse,
     ClarifyRequest,
     ClarifyResponse,
-    DetectRequest,
-    DetectResponse,
+    ClarifyResponse,
+    RAGRequest,
+    RAGResponse,
     RAGRequest,
     RAGResponse,
     RIARRequest,
@@ -37,26 +38,60 @@ async def health():
     return {"status": "ok", "service": "ai-kiosk-backend"}
 
 
-# ── /detect ───────────────────────────────────
+# ── /events ───────────────────────────────────
 
-@router.post("/detect", response_model=DetectResponse, tags=["pipeline"])
-async def detect(body: DetectRequest, request: Request):
-    # DetectionEvent triggers session creation
-    session = await create_session(metadata={"camera_id": body.camera_id})
-    result = await detection_service.detect(session.session_id, body)
-    return result
+from pydantic import BaseModel
+from typing import Optional, Dict, Any
+from app.models.shared_models import KioskEvent
 
-@router.delete("/detect/{session_id}", tags=["pipeline"])
-async def session_close(session_id: str):
-    ok = await close_session(session_id)
-    if not ok:
-        raise HTTPException(status_code=404, detail="Session not found or already closed")
-    return {
-        "session_id": session_id,
-        "action": "session_closed",
-        "duration_seconds": 0,
-        "turns_completed": 0
-    }
+class EventRequest(BaseModel):
+    event_type: str
+    camera_id: str
+    timestamp: Optional[str] = None
+    payload: Dict[str, Any] = {}
+
+class EventResponse(BaseModel):
+    status: str
+    action_taken: str
+    session_id: Optional[str] = None
+    message: Optional[str] = None
+
+@router.post("/events", response_model=EventResponse, tags=["pipeline"])
+async def handle_events(body: EventRequest, request: Request):
+    """
+    Unified ingestion endpoint for all edge sensor events.
+    """
+    import logging
+    import uuid
+    logger = logging.getLogger(__name__)
+    
+    logger.info(f"Received Event: {body.event_type} | Camera: {body.camera_id}")
+
+    if body.event_type == "PERSON_DETECTED":
+        # Check if session exists (simplified logic for now)
+        session_id = f"ses_{uuid.uuid4().hex[:12]}"
+        await create_session(metadata={"camera_id": body.camera_id})
+        
+        return EventResponse(
+            status="success",
+            action_taken="session_created",
+            session_id=session_id,
+            message="Welcome to PES University."
+        )
+
+    elif body.event_type == "PERSON_LEFT":
+        logger.info(f"Closing session for camera {body.camera_id}")
+        return EventResponse(
+            status="success",
+            action_taken="session_closed",
+            session_id="dummy_id"
+        )
+
+    elif body.event_type == "HEARTBEAT":
+        return EventResponse(status="success", action_taken="heartbeat_logged")
+
+    else:
+        raise HTTPException(status_code=400, detail="Unknown event type")
 
 
 # ── /asr ─────────────────────────────────────

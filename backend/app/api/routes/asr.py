@@ -5,7 +5,6 @@ Owner: Harsha
 
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional
 import logging
 
 logger = logging.getLogger(__name__)

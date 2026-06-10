@@ -12,15 +12,16 @@ Usage in backend (controlled by .env flags):
 import time
 import threading
 import logging
-from typing import List, Optional, Callable, Any
+from typing import List, Optional, Callable
 
 # Add repo root to path
-import sys, os
+import sys
+import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../"))
 
 from backend.app.models.shared_models import (
     DetectionEvent, BoundingBox, RIARResult, RefinedQuery,
-    DomainResponse, Chunk, ProbeChunk, Turn
+    DomainResponse, Chunk, Turn
 )
 
 logger = logging.getLogger(__name__)

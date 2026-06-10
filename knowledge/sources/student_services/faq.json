@@ -1,0 +1,152 @@
+[
+    {
+        "topic": "Hostel",
+        "question": "How do I apply for on-campus hostel accommodation, and what is the allotment criteria?",
+        "answer": "You can apply through the Hostel Portal during the enrollment window. Allotment is based on distance from your home town, academic priority (for seniors), and availability, with priority given to first-year out-of-station students."
+    },
+    {
+        "topic": "Hostel",
+        "question": "What are the rules and timings regarding curfew and visitor entry in the hostels?",
+        "answer": "The main gates close at 10:30 PM daily. Visitors, including family members, are only permitted in the common lounge areas between 9:00 AM and 7:00 PM and are strictly prohibited from entering student rooms."
+    },
+    {
+        "topic": "Hostel",
+        "question": "How can I report maintenance issues (like plumbing, electricity, or Wi-Fi) in my hostel room?",
+        "answer": "You can log a ticket on the Campus Maintenance Portal or contact the resident warden. Non-emergency requests are resolved within 24-48 hours, while emergencies (power outages, leaks) are handled immediately."
+    },
+    {
+        "topic": "Hostel",
+        "question": "What happens if I want to change my room or roommate during the academic year?",
+        "answer": "Room or roommate change requests are only accepted during the third week of each semester. You must submit a mutual swap application to the Hostel warden, subject to approval and room availability."
+    },
+    {
+        "topic": "Hostel",
+        "question": "Are hostels open during summer breaks, and can students stay on campus during holidays?",
+        "answer": "Hostels are closed during winter and summer breaks for maintenance. However, international students or students doing summer courses/research can apply for special permission to stay in designated hostels."
+    },
+    {
+        "topic": "Hostel",
+        "question": "What is the process for checking out of the hostel and getting my security deposit refunded?",
+        "answer": "Upon checkout, a room inspection is done by the caretaker to check for damages. Once the clearance certificate is signed, the security deposit is refunded to your registered bank account within 30 days."
+    },
+    {
+        "topic": "Library",
+        "question": "What are the opening hours of the university central library, and is it open 24/7 during exams?",
+        "answer": "The regular hours are 8:00 AM to 10:00 PM on weekdays and 9:00 AM to 5:00 PM on weekends. During mid-terms and final examinations, the central reading hall is open 24/7."
+    },
+    {
+        "topic": "Library",
+        "question": "How many books can I borrow at a time, and what is the duration of the borrowing period?",
+        "answer": "Undergraduates can borrow up to 5 books for 14 days. Graduate and research students can borrow up to 10 books for 30 days. Borrowed books can be renewed once online if there are no pending holds."
+    },
+    {
+        "topic": "Library",
+        "question": "How can I access online research journals, databases, and e-books from off-campus?",
+        "answer": "You can access digital databases (IEEE, JSTOR, Elsevier) off-campus by logging into the Library Proxy Portal using your university single sign-on (SSO) credentials or configuring the university VPN."
+    },
+    {
+        "topic": "Library",
+        "question": "What are the late return fines, and how can I renew a book online?",
+        "answer": "Fines are $0.50 per book per day. To renew a book, log in to your account on the online library catalog system, view your checked-out items, and click the 'Renew' button next to the eligible book."
+    },
+    {
+        "topic": "Library",
+        "question": "Are there private study rooms or collaborative group spaces available, and how do I reserve them?",
+        "answer": "Yes, the library has 12 study rooms. You can book them for up to 3 hours online through the Library Study Room Reservation System using your student email ID."
+    },
+    {
+        "topic": "Library",
+        "question": "Can I recommend or request the library to purchase a book or resource that is not in the current collection?",
+        "answer": "Yes. Students can fill out the 'Purchase Recommendation Form' on the library website. If approved by the library committee, the book will be acquired and you will be notified when it arrives."
+    },
+    {
+        "topic": "ID cards",
+        "question": "How do I get my first university student ID card, and what documents are required?",
+        "answer": "You can get your ID card at the Campus Card Office during orientation. You must show your official admission letter and a valid government-issued photo ID (Passport, Driver's License)."
+    },
+    {
+        "topic": "ID cards",
+        "question": "What should I do if I lose my student ID card, and how much is the replacement fee?",
+        "answer": "Report the loss immediately on the student portal to freeze your card balances and building access. You can obtain a replacement card at the Security Office for a fee of $20."
+    },
+    {
+        "topic": "ID cards",
+        "question": "My student ID card is damaged and not scanning. How can I get it replaced or repaired?",
+        "answer": "Take your damaged card to the Campus Card Office. If the damage is due to normal wear and tear, it will be replaced free of charge. If it is due to misuse or physical bending, the replacement fee applies."
+    },
+    {
+        "topic": "ID cards",
+        "question": "Can I use a digital version of my ID card on my phone for library access or exams?",
+        "answer": "Yes. You can install the 'University Mobile ID' app, log in with your credentials, and use the NFC/barcode display at library turnstiles and exam sign-in desks."
+    },
+    {
+        "topic": "ID cards",
+        "question": "What campus facilities and discounts can I access using my university student ID card?",
+        "answer": "Your ID card provides access to academic buildings, computer labs, the gym, dining halls, public transit partners, and local student discounts at restaurants and bookstores."
+    },
+    {
+        "topic": "ID cards",
+        "question": "Does my student ID card expire, and do I need to renew it every academic year?",
+        "answer": "Your card is valid for the duration of your degree program. You do not need to renew it annually, but your validation sticker (showing the current year) must be updated at the registrar's office each Fall."
+    },
+    {
+        "topic": "Certificates",
+        "question": "How do I apply for a Bonafide Certificate or proof of enrollment for visa/loan purposes?",
+        "answer": "You can apply through the 'Document Requests' menu on the student portal. Once approved by the registrar, a PDF containing the digital signature and college seal will be emailed to you within 2 working days."
+    },
+    {
+        "topic": "Certificates",
+        "question": "What is the process for obtaining a duplicate degree certificate or official diploma?",
+        "answer": "To get a duplicate degree, you must submit a notarized affidavit stating the loss of the original, a police report (FIR), and apply through the Registrar's portal with a $50 processing fee."
+    },
+    {
+        "topic": "Certificates",
+        "question": "How can I request a Migration Certificate or Transfer Certificate after graduating?",
+        "answer": "After graduation clearance is complete, you can submit a request on the alumni portal under 'Graduation Documents'. These certificates are issued within 10-15 business days."
+    },
+    {
+        "topic": "Certificates",
+        "question": "How long does it take to process certificates, and can I receive a digital copy?",
+        "answer": "Standard certificates take 3-5 working days. Digitally signed, secure PDFs are sent immediately upon approval, which are accepted by most external organizations."
+    },
+    {
+        "topic": "Certificates",
+        "question": "What is a transcripts request, and how can I send certified transcripts directly to other universities?",
+        "answer": "You can request official transcripts online. You must provide the recipient university's address/email. The registrar will send them directly in a sealed envelope or via secure electronic exchange."
+    },
+    {
+        "topic": "Certificates",
+        "question": "Is there a charge for obtaining official certificates, and how can I pay for them?",
+        "answer": "First-time standard enrollment and graduation certificates are free. Additional copies, duplicate diplomas, or express physical shipping incur fees payable online via credit card or student account balance."
+    },
+    {
+        "topic": "Student support",
+        "question": "What mental health and counseling services are available on campus, and are they confidential?",
+        "answer": "The Student Counseling Center offers free, 100% confidential personal therapy, crisis intervention, and group workshops. No information is shared with academic departments or parents without your consent."
+    },
+    {
+        "topic": "Student support",
+        "question": "Where can I find the Student Health Center, and what medical services are covered by my student fee?",
+        "answer": "Located in the Wellness Wing, the Health Center offers free primary care, physicals, basic lab testing, and immunizations. Specialized treatments or prescription drugs may require co-pays or insurance billing."
+    },
+    {
+        "topic": "Student support",
+        "question": "Who should I contact if I am experiencing harassment, discrimination, or bullying on campus?",
+        "answer": "You can contact the Office of Equity and Compliance or report anonymounsly through the campus helpline. The university has a zero-tolerance policy and provides immediate support and protection."
+    },
+    {
+        "topic": "Student support",
+        "question": "Are there tutoring or academic writing support centers available for struggling students?",
+        "answer": "Yes. The Academic Success Center provides free peer tutoring in major subjects, and the Writing Lab assists students with drafting essays, reports, and structuring research papers."
+    },
+    {
+        "topic": "Student support",
+        "question": "How can I get assistance with career planning, mock interviews, and finding off-campus housing?",
+        "answer": "The Career Services office offers career counseling and mock interview sessions. For housing, the Off-Campus Housing Coordinator provides listing guides and roommate matching tools."
+    },
+    {
+        "topic": "Student support",
+        "question": "What disability services and accommodations are available for students with physical or learning challenges?",
+        "answer": "The Office of Disability Resources coordinates accommodations such as extended exam times, note-taking services, assistive technologies, and campus accessibility modifications."
+    }
+]

@@ -1,0 +1,152 @@
+[
+    {
+        "topic": "Faculty projects",
+        "question": "How can I find active research projects currently being conducted by university faculty?",
+        "answer": "You can browse active projects on the university's Research Portal, visit departmental websites under the 'Faculty Research' tab, or attend departmental research seminars held at the beginning of each semester."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "Can I propose my own research project to a faculty member for mentorship?",
+        "answer": "Yes. Faculty members are open to student-initiated projects. You should prepare a brief, structured research proposal (problem statement, methodology, and expected outcomes) and schedule a meeting with a professor whose expertise aligns with your topic."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "Do faculty research projects offer funding or stipends for student assistants?",
+        "answer": "Many faculty projects funded by external grants (e.g., NSF, NIH, or industry partners) offer paid research assistantships or monthly stipends for both undergraduate and graduate students."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "How do I approach a professor to join their active research project?",
+        "answer": "Read their recent publications, write a concise email highlighting your interest in their specific project, attach your CV and transcripts, and request a brief meeting during their office hours to discuss potential openings."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "Are faculty projects open to undergraduate students, or are they reserved for graduates?",
+        "answer": "Many faculty projects actively recruit undergraduate students for tasks like data analysis, literature reviews, software development, and lab experimentation, often serving as a pathway to graduate study."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "What is the typical duration and commitment required for a faculty-led research project?",
+        "answer": "Commitment varies, but students are usually expected to dedicate 8-12 hours per week during the academic semester. Projects typically run for one semester to a full academic year."
+    },
+    {
+        "topic": "Faculty projects",
+        "question": "How are faculty research projects funded?",
+        "answer": "Funding comes from a mix of external federal grants, state research agencies, private industry partnerships, corporate sponsorships, and university institutional research grants."
+    },
+    {
+        "topic": "Research labs",
+        "question": "What research labs exist within the Computer Science and Engineering departments?",
+        "answer": "We host several specialized labs, including the Artificial Intelligence & Robotics Lab, Cybersecurity & Cryptography Lab, Human-Computer Interaction Lab, and the Advanced Data Systems Lab."
+    },
+    {
+        "topic": "Research labs",
+        "question": "How can a student gain physical access to work in a university research lab?",
+        "answer": "Physical access (keycard permissions) must be requested by the Lab Director or your faculty research advisor and submitted to the Department Operations Office after completing safety clearances."
+    },
+    {
+        "topic": "Research labs",
+        "question": "Are there safety training requirements before starting work in lab facilities?",
+        "answer": "Yes. All researchers must complete the online General Laboratory Safety course and any specialized training (e.g., Chemical Safety, Laser Safety, or Biosafety) relevant to their specific lab before building access is granted."
+    },
+    {
+        "topic": "Research labs",
+        "question": "Can students utilize research lab equipment for personal or course-related projects?",
+        "answer": "Research lab equipment is reserved for approved research projects. For personal or regular course projects, students should use the general student makerspaces and computer labs."
+    },
+    {
+        "topic": "Research labs",
+        "question": "Who should I contact if I want to collaborate with or visit a specific research lab?",
+        "answer": "You should email the primary Principal Investigator (PI) or Lab Director listed on the lab's directory page, stating the purpose of your visit or proposal."
+    },
+    {
+        "topic": "Research labs",
+        "question": "How are lab resources allocated among multiple student researchers?",
+        "answer": "Lab resources (desks, computers, specialized hardware) are managed by the lab's lead manager under the direction of the PI, prioritizing students based on project deadlines and funding source allocations."
+    },
+    {
+        "topic": "Research labs",
+        "question": "What computing resources (such as GPU clusters) are available in the department labs?",
+        "answer": "Students have access to our departmental High-Performance Computing (HPC) cluster, housing state-of-the-art GPUs (NVIDIA A100s/H100s) for heavy workloads like machine learning, rendering, and complex physics simulations."
+    },
+    {
+        "topic": "Publications",
+        "question": "What are the university guidelines for co-authoring research papers with faculty?",
+        "answer": "Co-authorship requires significant intellectual contribution to the research (design, data collection, analysis, or drafting the manuscript). Author order is determined collaboratively based on contribution levels."
+    },
+    {
+        "topic": "Publications",
+        "question": "Does the university provide financial support for publishing in open-access journals?",
+        "answer": "Yes. The University Library manages an Open Access Publishing Fund that can cover Article Processing Charges (APCs) for peer-reviewed open-access journals, subject to application approval."
+    },
+    {
+        "topic": "Publications",
+        "question": "How is the order of authorship determined on collaborative research publications?",
+        "answer": "Authorship order follows standard academic practices: the person who performed the majority of the work and writing is the first author, while the supervising faculty advisor is usually listed as the final corresponding author."
+    },
+    {
+        "topic": "Publications",
+        "question": "Does the university fund student travel to present papers at international conferences?",
+        "answer": "Yes. The Graduate Student Senate and the Undergraduate Research Office offer travel grants of up to $1,000 per student to cover registration, travel, and lodging if the student is presenting an accepted paper."
+    },
+    {
+        "topic": "Publications",
+        "question": "Which journals and conferences are considered high-impact or Tier-1 in our department?",
+        "answer": "Each department maintains a list of Tier-1 venues (e.g., IEEE/ACM transactions, NeurIPS, CVPR, Nature, Science). Consult your research advisor to select the most prestigious and suitable target for your paper."
+    },
+    {
+        "topic": "Publications",
+        "question": "What is the process for submitting my research work to the university's institutional repository?",
+        "answer": "Upon publication approval, you can upload your preprint or publisher-compliant version to the 'ScholarWorks' portal, our open digital repository, to ensure long-term preservation and open accessibility."
+    },
+    {
+        "topic": "Publications",
+        "question": "What happens if my research paper is rejected, and how do I handle revisions?",
+        "answer": "Rejection is a normal part of research. You should review the peer feedback with your co-authors, revise the manuscript to address criticism, and submit the improved version to an alternative conference or journal."
+    },
+    {
+        "topic": "Publications",
+        "question": "Are undergraduate students encouraged to publish, and what support is available to them?",
+        "answer": "Yes, undergraduates are highly encouraged to publish. The university hosts a dedicated Undergraduate Research Journal where students can publish peer-reviewed papers under faculty guidance."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "What is the Undergraduate Research Opportunities Program (UROP), and how do I apply?",
+        "answer": "UROP funds undergraduate students to work on research projects with faculty mentors. Applications open twice a year (Fall and Spring) and require a project proposal, personal statement, and faculty endorsement."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "Can I earn academic course credits for participating in research during the semester?",
+        "answer": "Yes, you can register for 'Independent Study' or 'Undergraduate Research' course credits (typically 1 to 3 credits) with approval from your faculty supervisor and academic advisor."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "Are there summer research fellowships or internships offered by the university?",
+        "answer": "Yes. The Summer Undergraduate Research Fellowship (SURF) offers a 10-week residential research experience, including a $5,000 stipend and free on-campus housing, to work full-time on a research project."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "How do I balance my coursework with my research assistantship commitments?",
+        "answer": "Time management is key. We recommend scheduling fixed blocks of research time around your class schedule, communicating openly with your advisor about exam weeks, and not exceeding 10 hours/week of research as a full-time student."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "Are there research opportunities available for freshmen and sophomore students?",
+        "answer": "Yes, programs like the 'First-Year Research Experience' (FYRE) are designed specifically to introduce freshmen and sophomores to basic research methods and connect them with faculty labs early."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "What are the requirements to apply for a Graduate Research Assistantship (GRA) position?",
+        "answer": "GRA applicants must be admitted to or enrolled in a graduate program, maintain a minimum 3.0 GPA, demonstrate relevant technical skills, and secure a faculty member willing to sponsor them using grant funds."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "Does the university host an annual research symposium or poster presentation event for students?",
+        "answer": "Yes. The Annual Student Research Exhibition takes place every Spring, allowing students to present posters, give oral presentations, and win cash prizes for outstanding research across all disciplines."
+    },
+    {
+        "topic": "Student research opportunities",
+        "question": "Where can I find external student research grants and funding opportunities?",
+        "answer": "The Office of Research Development maintains a curated list of external fellowships (like the NSF GRFP, Goldwater Scholarship, and Fulbright) on its website and hosts regular application workshops."
+    }
+]

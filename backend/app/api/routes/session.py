@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 router = APIRouter()
 
 @router.get("/session/{session_id}")

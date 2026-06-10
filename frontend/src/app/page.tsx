@@ -3,8 +3,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { VidyaSahayakOrb } from '@/components/orb';
 import type { OrbState } from '@/components/orb/orbStates';
-import { TextParticle } from '@/components/ui/text-particle';
-import { Typewriter } from '@/components/ui/typewriter-text';
 
 const WS_BASE_URL = process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000/ws/session';
 
@@ -113,23 +111,17 @@ export default function KioskPage() {
   }, [connectWebSocket]);
 
   return (
-    <main className="min-h-screen bg-[#060810] flex flex-col items-center justify-between py-16 px-4 relative overflow-hidden">
+    <main className="min-h-screen bg-zinc-950 flex flex-col items-center justify-between py-12 px-4 relative overflow-hidden">
       
-      {/* ── Top Magical Wordmark ── */}
-      <div className="w-full h-32 flex items-center justify-center relative z-10 mb-8">
-        <TextParticle
-          text="VIDYASAHAYAK"
-          fontSize={100}
-          fontFamily="system-ui, -apple-system, sans-serif"
-          particleColor="#38bdf8" // Glowing cyan/blue
-          particleSize={1.5}
-          particleDensity={4}
-          className="w-full h-full cursor-crosshair opacity-80"
-        />
+      {/* ── Top Premium Wordmark ── */}
+      <div className="w-full h-16 flex items-center justify-center relative z-10">
+        <h1 className="font-sans text-xs tracking-[0.3em] text-zinc-500 uppercase font-medium">
+          VidyaSahayak
+        </h1>
       </div>
 
-      {/* ── Orb ───────────────────────────────────────── */}
-      <div className="relative z-20 flex-1 flex items-center justify-center">
+      {/* ── Orb & Interaction Space ─────────────────────── */}
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center w-full max-w-4xl">
         <VidyaSahayakOrb
           state={orbState}
           onStateChange={setOrbState}
@@ -141,22 +133,11 @@ export default function KioskPage() {
         />
       </div>
 
-      {/* ── Dynamic Footer ── */}
-      <div className="h-16 mt-16 relative z-10 flex items-center justify-center text-center">
-        <Typewriter
-          text={[
-            "PES University",
-            "Fluid Intelligence",
-            "Academic AI",
-            "GPU Accelerated"
-          ]}
-          speed={70}
-          deleteSpeed={40}
-          delay={2500}
-          loop={true}
-          className="font-sans text-sm tracking-[0.2em] text-white/40 uppercase font-medium"
-          cursor="|"
-        />
+      {/* ── Footer ── */}
+      <div className="h-16 relative z-10 flex items-center justify-center text-center opacity-30">
+        <p className="font-sans text-[10px] tracking-[0.1em] text-zinc-500 uppercase">
+          AI Prototype
+        </p>
       </div>
     </main>
   );

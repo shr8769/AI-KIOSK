@@ -5,6 +5,7 @@ import { OrbState, OrbStateConfig, ORB_STATES, STATE_SEQUENCE } from './orbState
 import { initWebGL, updateUniforms, WebGLContext } from './orbWebGL';
 import { drawGlassShell, drawAura } from './orbCanvas2D';
 import { startMicAnalysis, stopMicAnalysis, MicHandle } from './orbAudio';
+import { Typewriter } from '@/components/ui/typewriter-text';
 
 interface VidyaSahayakOrbProps {
   /** Controlled state from parent (optional) */
@@ -237,30 +238,28 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
 
       {/* ── Labels ── */}
       {showLabels && (
-        <>
-          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, letterSpacing: '0.25em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', fontWeight: 600, marginTop: 40, transition: 'all 0.6s ease' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 48, minHeight: 80 }}>
+          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 10, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', fontWeight: 500, transition: 'all 0.6s ease' }}>
             {label}
           </p>
-          <p style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 20, color: 'rgba(255,255,255,0.9)', marginTop: 12, textAlign: 'center', fontWeight: 400, letterSpacing: '0.02em', transition: 'all 0.6s ease' }}>
-            {desc}
-          </p>
-        </>
+          <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 18, color: 'rgba(255,255,255,0.85)', marginTop: 12, textAlign: 'center', fontWeight: 400, letterSpacing: '0.01em', transition: 'all 0.6s ease' }}>
+            <Typewriter key={desc} text={desc} speed={30} delay={3000} cursor="|" className="inline-block" />
+          </div>
+        </div>
       )}
 
       {/* ── Mic button ── */}
       {showMic && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 18 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 24, opacity: micOn ? 1 : 0.4, transition: 'opacity 0.3s', cursor: 'pointer' }} onClick={toggleMic}>
           <button
-            onClick={toggleMic}
             title={micOn ? 'Stop listening' : 'Start listening'}
             style={{
-              width: 56, height: 56, borderRadius: '50%',
-              border: `1px solid ${micOn ? 'rgba(100,160,255,0.6)' : 'rgba(255,255,255,0.3)'}`,
-              background: micOn ? 'rgba(80,140,255,0.25)' : 'rgba(255,255,255,0.08)',
-              color: micOn ? 'rgba(160,200,255,1)' : 'rgba(255,255,255,0.8)',
+              width: 48, height: 48, borderRadius: '50%',
+              border: `1px solid ${micOn ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.05)'}`,
+              background: micOn ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.02)',
+              color: micOn ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)',
               cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.25s', outline: 'none',
-              boxShadow: micOn ? '0 0 20px rgba(80,140,255,0.3)' : 'none',
+              transition: 'all 0.4s ease', outline: 'none',
             }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -270,28 +269,24 @@ export const VidyaSahayakOrb: React.FC<VidyaSahayakOrbProps> = ({
               <line x1="8" y1="21" x2="16" y2="21"/>
             </svg>
           </button>
-          <span style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', fontWeight: 500 }}>
-            {!micAvail ? 'Mic unavailable' : micOn ? 'Listening…' : 'Tap to listen'}
-          </span>
         </div>
       )}
 
       {/* ── State controls ── */}
       {showControls && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginTop: 18, maxWidth: 520 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: 'center', marginTop: 32, maxWidth: 520, opacity: 0.15, transition: 'opacity 0.4s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.15'}>
           {ORB_STATES.map(s => (
             <button
               key={s.id}
               onClick={() => { stopDemo(); if (micOn) { stopMicAnalysis(micHandleRef.current); micHandleRef.current = null; setMicOn(false); } applyState(s.id as OrbState); }}
               style={{
                 fontFamily: 'system-ui, -apple-system, sans-serif',
-                fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
-                padding: '8px 16px', borderRadius: 100,
-                border: `1px solid ${activeId === s.id ? 'rgba(90,145,255,0.6)' : 'rgba(255,255,255,0.15)'}`,
-                background: activeId === s.id ? 'rgba(70,120,255,0.2)' : 'rgba(255,255,255,0.05)',
-                color: activeId === s.id ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)',
-                cursor: 'pointer', textTransform: 'uppercase', transition: 'all 0.2s', outline: 'none',
-                boxShadow: activeId === s.id ? '0 4px 12px rgba(70,120,255,0.2)' : 'none',
+                fontSize: 9, fontWeight: 500, letterSpacing: '0.05em',
+                padding: '4px 10px', borderRadius: 100,
+                border: `1px solid ${activeId === s.id ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.05)'}`,
+                background: activeId === s.id ? 'rgba(255,255,255,0.1)' : 'transparent',
+                color: activeId === s.id ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.3)',
+                cursor: 'pointer', textTransform: 'uppercase', transition: 'all 0.3s ease', outline: 'none',
               }}
             >
               {s.label}

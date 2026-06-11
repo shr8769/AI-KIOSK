@@ -35,6 +35,8 @@ async def ingest_event(request: EventRequest):
     Unified ingestion endpoint for all edge sensor events.
     The backend remains the Single Source of Truth for session management.
     """
+    from app.websockets.session_ws import manager
+
     logger.info(f"Received Event: {request.event_type} | Camera: {request.camera_id}")
 
     if request.event_type == "PERSON_DETECTED":
@@ -48,7 +50,19 @@ async def ingest_event(request: EventRequest):
         logger.info(f"Creating new session {session_id} for camera {request.camera_id}")
 
         # TODO: Save session to Redis via SessionManager
-        # TODO: Trigger avatar greeting state change via WebSocket
+
+        # Trigger avatar greeting state change via WebSocket
+        try:
+            await manager.broadcast({
+                "type": "detection",
+                "payload": {"person_detected": True, "session_id": session_id}
+            })
+            await manager.broadcast({
+                "type": "greeting",
+                "payload": {"message": "Welcome to PES University."}
+            })
+        except Exception as e:
+            logger.warning(f"Failed to broadcast detection to WebSocket: {e}")
 
         return EventResponse(
             status="success",
@@ -65,6 +79,15 @@ async def ingest_event(request: EventRequest):
 
         logger.info(f"Closing session for camera {request.camera_id}")
         # TODO: Retrieve session, compute duration, close in Redis + write to SQLite
+
+        # Trigger avatar idle state change via WebSocket
+        try:
+            await manager.broadcast({
+                "type": "detection",
+                "payload": {"person_detected": False}
+            })
+        except Exception as e:
+            logger.warning(f"Failed to broadcast departure to WebSocket: {e}")
 
         return EventResponse(status="success", action_taken="session_closed", session_id="dummy_id")
 

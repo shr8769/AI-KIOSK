@@ -13,6 +13,10 @@ from fastapi import WebSocket, WebSocketDisconnect
 
 from app.core.logging import logger
 from app.core.session_store import get_session
+from app.models.schemas import ASRRequest, RIARRequest, RouteRequest, RAGRequest, TTSRequest
+from app.services.speech.asr_service import asr_service
+from app.services.speech.tts_service import tts_service
+from app.services.mock_services import riar_service, route_service, rag_service
 
 # ── Connection Manager ────────────────────────
 
@@ -79,19 +83,123 @@ async def websocket_session_handler(websocket: WebSocket, session_id: str):
                 await manager.send(session_id, {"type": "pong", "payload": {}})
 
             elif msg_type == "audio_chunk":
-                # TODO: pipe to ASRService → RIARService → RAGService → TTSService
-                # For now, echo the transcript placeholder
-                await manager.send(
-                    session_id,
-                    {
-                        "type": "transcript",
-                        "payload": {
-                            "text": "[mock] Audio received, transcription pending real ASR",
-                            "confidence": 0.0,
-                            "final": True,
+                audio_base64 = payload.get("audio_base64")
+                if not audio_base64:
+                    await manager.send(
+                        session_id,
+                        {"type": "error", "payload": {"message": "Missing audio_base64 payload"}},
+                    )
+                    continue
+
+                turn_id = payload.get("turn_id", 1)
+                language_hint = payload.get("language_hint", "en")
+
+                # Send processing state update (thinking)
+                await manager.send(session_id, {"type": "thinking", "payload": {}})
+
+                try:
+                    # 1. ASR Transcription
+                    asr_req = ASRRequest(
+                        session_id=session_id,
+                        audio_base64=audio_base64,
+                        language_hint=language_hint,
+                        turn_id=turn_id,
+                    )
+                    asr_resp = await asr_service.transcribe(asr_req)
+
+                    # Send transcription transcript back to client
+                    await manager.send(
+                        session_id,
+                        {
+                            "type": "transcript",
+                            "payload": {
+                                "text": asr_resp.transcript,
+                                "confidence": asr_resp.confidence,
+                                "final": True,
+                            },
                         },
-                    },
-                )
+                    )
+
+                    # 2. Intent Refinement & Ambiguity Classification (RIAR)
+                    riar_req = RIARRequest(
+                        session_id=session_id,
+                        turn_id=turn_id,
+                        query=asr_resp.transcript,
+                        language=asr_resp.detected_language,
+                        session_history=[],
+                    )
+                    riar_resp = await riar_service.classify(riar_req)
+
+                    if riar_resp.requires_clarification:
+                        # 3a. TTS for Clarification question
+                        tts_req = TTSRequest(
+                            session_id=session_id,
+                            text=riar_resp.clarification_question or "Could you clarify?",
+                            language=asr_resp.detected_language,
+                        )
+                        tts_resp = await tts_service.synthesize(tts_req)
+
+                        # Send clarifying message to client
+                        await manager.send(
+                            session_id,
+                            {
+                                "type": "clarifying",
+                                "payload": {
+                                    "text": riar_resp.clarification_question,
+                                    "audio_url": tts_resp.audio_url,
+                                    "ambiguity_type": riar_resp.ambiguity_type,
+                                },
+                            },
+                        )
+                    else:
+                        # 3b. Route query to domain agent
+                        await manager.send(session_id, {"type": "retrieving", "payload": {}})
+                        
+                        route_req = RouteRequest(
+                            session_id=session_id,
+                            refined_query=riar_resp.refined_query or asr_resp.transcript,
+                            domain=riar_resp.domain or "general",
+                            language=asr_resp.detected_language,
+                        )
+                        route_resp = await route_service.route(route_req)
+
+                        # 4b. RAG grounded answer generation
+                        rag_req = RAGRequest(
+                            session_id=session_id,
+                            query=riar_resp.refined_query or asr_resp.transcript,
+                            context=route_resp.context_window,
+                            domain=riar_resp.domain or "general",
+                            language=asr_resp.detected_language,
+                        )
+                        rag_resp = await rag_service.generate(rag_req)
+
+                        # 5b. TTS Response audio generation
+                        tts_req = TTSRequest(
+                            session_id=session_id,
+                            text=rag_resp.answer,
+                            language=asr_resp.detected_language,
+                        )
+                        tts_resp = await tts_service.synthesize(tts_req)
+
+                        # Send final answer payload to client (speaking state)
+                        await manager.send(
+                            session_id,
+                            {
+                                "type": "answer",
+                                "payload": {
+                                    "text": rag_resp.answer,
+                                    "audio_url": tts_resp.audio_url,
+                                    "sources": rag_resp.citations,
+                                },
+                            },
+                        )
+
+                except Exception as e:
+                    logger.exception(f"Pipeline error processing audio: {e}")
+                    await manager.send(
+                        session_id,
+                        {"type": "error", "payload": {"message": f"Pipeline processing failed: {str(e)}"}},
+                    )
 
             elif msg_type == "frame":
                 # TODO: pipe to DetectionService

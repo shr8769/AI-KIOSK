@@ -30,6 +30,7 @@ class Settings(BaseSettings):
 
     # Service flags (toggle real vs mock)
     USE_MOCK_SERVICES: bool = True
+    WHISPER_MODEL_SIZE: str = "base"
 
     class Config:
         env_file = ".env"

@@ -87,6 +87,10 @@ class TestTTSService:
     @pytest.mark.asyncio
     async def test_tts_real_synthesis(self):
         """Test local offline TTS SAPI5 file creation."""
+        import sys
+        if sys.platform != "win32":
+            pytest.skip("pyttsx3 real synthesis is only supported on Windows hosts.")
+
         old_val = settings.USE_MOCK_SERVICES
         settings.USE_MOCK_SERVICES = False
 

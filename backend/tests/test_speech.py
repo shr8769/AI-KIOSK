@@ -3,12 +3,12 @@ Speech Pipeline Unit Tests
 Owner: Harsha
 """
 
-import base64
 import io
 import os
 import wave
-import pytest
+
 import numpy as np
+import pytest
 
 from app.core.config import settings
 from app.models.schemas import ASRRequest, TTSRequest
@@ -35,7 +35,7 @@ class TestASRService:
         # Force mock settings for this test
         old_val = settings.USE_MOCK_SERVICES
         settings.USE_MOCK_SERVICES = True
-        
+
         try:
             req = ASRRequest(
                 session_id="test_sess_01",
@@ -55,7 +55,7 @@ class TestASRService:
         """Verify in-memory WAV decoding decodes accurately to normalized numpy array."""
         wav_bytes = generate_silent_wav(sample_rate=16000, duration_seconds=0.2)
         audio_data = asr_service._load_wav_to_numpy(wav_bytes)
-        
+
         assert isinstance(audio_data, np.ndarray)
         assert audio_data.dtype == np.float32
         # Check that it's all silence/zeros
@@ -70,7 +70,7 @@ class TestTTSService:
         """Test mock TTS synthesis endpoints."""
         old_val = settings.USE_MOCK_SERVICES
         settings.USE_MOCK_SERVICES = True
-        
+
         try:
             req = TTSRequest(
                 session_id="test_sess_01",
@@ -89,7 +89,7 @@ class TestTTSService:
         """Test local offline TTS SAPI5 file creation."""
         old_val = settings.USE_MOCK_SERVICES
         settings.USE_MOCK_SERVICES = False
-        
+
         try:
             req = TTSRequest(
                 session_id="test_sess_real",
@@ -98,16 +98,16 @@ class TestTTSService:
                 speed=1.0
             )
             response = await tts_service.synthesize(req)
-            
+
             assert response.session_id == "test_sess_real"
             assert "response_test_sess_real_" in response.audio_url
             assert response.format == "wav"
-            
+
             # Verify the output file was actually created in the filesystem
             local_path = response.audio_url.lstrip("/")
             assert os.path.exists(local_path)
             assert os.path.getsize(local_path) > 44  # Larger than empty WAV header
-            
+
             # Clean up the test audio file
             if os.path.exists(local_path):
                 os.remove(local_path)

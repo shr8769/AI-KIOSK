@@ -8,6 +8,7 @@ import logging
 import os
 import time
 import wave
+
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -35,7 +36,7 @@ class AudioCaptureService:
         """
         Record audio from the default microphone until silence is detected
         or max_duration is reached. Saves the audio as a 16kHz 16-bit mono WAV.
-        
+
         Gracefully handles environments without a microphone.
         """
         try:
@@ -68,7 +69,7 @@ class AudioCaptureService:
                 if d.get("max_input_channels", 0) > 0:
                     input_device_exists = True
                     break
-            
+
             if not input_device_exists:
                 logger.warning("No microphone input device detected. Skipping physical recording.")
                 # Wait representing conversation turn in mock mode
@@ -112,7 +113,7 @@ class AudioCaptureService:
                 # Compile and write audio frames to disk
                 recording_data = np.concatenate(all_frames, axis=0)
                 os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
-                
+
                 with wave.open(output_path, "wb") as wf:
                     wf.setnchannels(self.channels)
                     wf.setsampwidth(2)  # 16-bit

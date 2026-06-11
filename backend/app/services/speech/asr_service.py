@@ -9,6 +9,7 @@ import logging
 import time
 import wave
 from typing import Any
+
 import numpy as np
 
 from app.core.config import settings

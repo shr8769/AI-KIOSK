@@ -7,6 +7,7 @@ Run: uvicorn app.main:app --reload
 """
 
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -52,7 +53,6 @@ app.add_middleware(
 )
 
 # Mount static files folder
-import os
 os.makedirs("static", exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

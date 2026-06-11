@@ -6,8 +6,8 @@ Owner: Harsha
 import asyncio
 import logging
 import os
-import time
 import threading
+import time
 from typing import Any
 
 from app.core.config import settings
@@ -41,11 +41,11 @@ def _run_pyttsx3_synthesis(text: str, filepath: str, voice_id: str, speed_multip
 
         engine.save_to_file(text, filepath)
         engine.runAndWait()
-        
+
         # Estimate duration based on word count (~150 WPM default)
         words = len(text.split())
         duration = round(words * (60.0 / int(rate * speed_multiplier)), 2)
-        
+
         # Explicit clean-up of SAPI COM reference
         del engine
         return duration
@@ -60,7 +60,7 @@ class TTSService:
         from app.models.schemas import TTSResponse
 
         start_time = time.time()
-        
+
         # Ensure static audio directory exists
         static_dir = os.path.join("static", "audio")
         os.makedirs(static_dir, exist_ok=True)

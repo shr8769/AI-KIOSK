@@ -7,12 +7,11 @@ import logging
 
 from fastapi import APIRouter
 
-logger = logging.getLogger(__name__)
-router = APIRouter()
-
-
 from app.models.schemas import TTSRequest, TTSResponse
 from app.services.speech.tts_service import tts_service
+
+logger = logging.getLogger(__name__)
+router = APIRouter()
 
 
 @router.post("/tts", response_model=TTSResponse)

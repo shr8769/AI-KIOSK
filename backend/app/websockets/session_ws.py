@@ -13,10 +13,10 @@ from fastapi import WebSocket, WebSocketDisconnect
 
 from app.core.logging import logger
 from app.core.session_store import get_session
-from app.models.schemas import ASRRequest, RIARRequest, RouteRequest, RAGRequest, TTSRequest
+from app.models.schemas import ASRRequest, RAGRequest, RIARRequest, RouteRequest, TTSRequest
+from app.services.mock_services import rag_service, riar_service, route_service
 from app.services.speech.asr_service import asr_service
 from app.services.speech.tts_service import tts_service
-from app.services.mock_services import riar_service, route_service, rag_service
 
 # ── Connection Manager ────────────────────────
 
@@ -154,7 +154,7 @@ async def websocket_session_handler(websocket: WebSocket, session_id: str):
                     else:
                         # 3b. Route query to domain agent
                         await manager.send(session_id, {"type": "retrieving", "payload": {}})
-                        
+
                         route_req = RouteRequest(
                             session_id=session_id,
                             refined_query=riar_resp.refined_query or asr_resp.transcript,

@@ -25,9 +25,9 @@ class PresenceMonitor:
         except ValueError:
             self.camera_index = camera_idx_str # Could be a video file or stream URL
             
-        self.presence_threshold = 1.5  # seconds
-        self.absence_threshold = 5.0   # seconds
-        self.confidence_threshold = 0.6
+        self.presence_threshold = 0.5  # seconds
+        self.absence_threshold = 3.0   # seconds
+        self.confidence_threshold = 0.5
         
         self._running = False
         self._thread: Optional[threading.Thread] = None

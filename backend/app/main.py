@@ -10,12 +10,13 @@ import logging
 import os
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import asr, events, rag, riar, route, session, tts
 from app.core.config import settings
+from app.websockets.session_ws import websocket_session_handler
 
 logging.basicConfig(
     level=logging.DEBUG if settings.DEBUG else logging.INFO,
@@ -111,6 +112,12 @@ app.include_router(route.router, prefix="/api/v1", tags=["Routing"])
 app.include_router(rag.router, prefix="/api/v1", tags=["RAG"])
 app.include_router(tts.router, prefix="/api/v1", tags=["TTS"])
 app.include_router(session.router, prefix="/api/v1", tags=["Session"])
+
+
+# WebSocket Route
+@app.websocket("/ws/session/{session_id}")
+async def websocket_endpoint(websocket: WebSocket, session_id: str):
+    await websocket_session_handler(websocket, session_id)
 
 
 @app.get("/health", tags=["Health"])

@@ -19,9 +19,9 @@ os.environ.setdefault("DEBUG", "true")
 os.environ.setdefault("REDIS_URL", "redis://localhost:6379/0")
 
 # ── NOW import app after environment is configured
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # noqa: E402
 
-from app.main import app
+from app.main import app  # noqa: E402
 
 
 @pytest.fixture(scope="session")

@@ -30,7 +30,54 @@ async def lifespan(app: FastAPI):
     logger.info("🚀 VidyaSahayak backend starting...")
     logger.info(f"   Mode: {'DEBUG' if settings.DEBUG else 'PRODUCTION'}")
     logger.info(f"   Using mock services: {settings.USE_MOCK_SERVICES}")
+
+    # Initialize SQLite database schema
+    from app.core.session_store import get_session, init_db
+    await init_db()
+
+    # Seed demo session for frontend local development
+    try:
+        demo_session = await get_session("demo_session_id")
+        if not demo_session:
+            logger.info("Seeding demo_session_id for development/testing...")
+            import json
+            from datetime import datetime
+
+            import aiosqlite
+            os.makedirs(os.path.dirname(settings.SQLITE_DB_PATH) or ".", exist_ok=True)
+            async with aiosqlite.connect(settings.SQLITE_DB_PATH) as db:
+                await db.execute(
+                    "INSERT OR IGNORE INTO sessions (session_id, created_at, status, metadata) VALUES (?,?,?,?)",
+                    ("demo_session_id", datetime.utcnow().isoformat(), "active", "{}"),
+                )
+                await db.commit()
+
+            try:
+                from app.core.session_store import get_redis
+                redis = await get_redis()
+                await redis.set(
+                    "session:demo_session_id",
+                    json.dumps({
+                        "session_id": "demo_session_id",
+                        "created_at": datetime.utcnow().isoformat(),
+                        "status": "active",
+                        "metadata": {}
+                    }),
+                    ex=settings.SESSION_TTL_SECONDS
+                )
+            except Exception:
+                pass
+    except Exception as e:
+        logger.warning(f"Could not seed demo session: {e}")
+
     yield
+
+    # Clean up connections
+    try:
+        from app.core.session_store import close_redis
+        await close_redis()
+    except Exception:
+        pass
     logger.info("⏹  VidyaSahayak backend shutting down...")
 
 

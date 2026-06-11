@@ -3,8 +3,8 @@ fastapi==0.111.0
 uvicorn[standard]==0.29.0
 
 # Data validation
-pydantic==2.7.1
-pydantic-settings==2.2.1
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
 
 # Session store
 redis>=5.0

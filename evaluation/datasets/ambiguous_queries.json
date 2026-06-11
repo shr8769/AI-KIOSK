@@ -1,0 +1,122 @@
+[
+    {
+        "query": "Microsoft",
+        "domain": "placements"
+    },
+    {
+        "query": "Can I apply?",
+        "domain": "admissions"
+    },
+    {
+        "query": "That form",
+        "domain": "student_services"
+    },
+    {
+        "query": "Hostel",
+        "domain": "student_services"
+    },
+    {
+        "query": "Library",
+        "domain": "student_services"
+    },
+    {
+        "query": "Placement",
+        "domain": "placements"
+    },
+    {
+        "query": "Research",
+        "domain": "research"
+    },
+    {
+        "query": "Amazon",
+        "domain": "placements"
+    },
+    {
+        "query": "GPA requirements",
+        "domain": "admissions"
+    },
+    {
+        "query": "Deadlines",
+        "domain": "admissions"
+    },
+    {
+        "query": "Calculator",
+        "domain": "academics"
+    },
+    {
+        "query": "Attendance",
+        "domain": "academics"
+    },
+    {
+        "query": "What if I miss it?",
+        "domain": "academics"
+    },
+    {
+        "query": "Failed a course",
+        "domain": "academics"
+    },
+    {
+        "query": "Official transcript",
+        "domain": "academics"
+    },
+    {
+        "query": "Resume template",
+        "domain": "placements"
+    },
+    {
+        "query": "Internships",
+        "domain": "placements"
+    },
+    {
+        "query": "Two offers",
+        "domain": "placements"
+    },
+    {
+        "query": "UROP",
+        "domain": "research"
+    },
+    {
+        "query": "Lab access",
+        "domain": "research"
+    },
+    {
+        "query": "Safety training",
+        "domain": "research"
+    },
+    {
+        "query": "Funding",
+        "domain": "research"
+    },
+    {
+        "query": "Lost card",
+        "domain": "student_services"
+    },
+    {
+        "query": "Certificate request",
+        "domain": "student_services"
+    },
+    {
+        "query": "Counseling help",
+        "domain": "student_services"
+    },
+    {
+        "query": "Where is it?",
+        "domain": "navigation"
+    },
+    {
+        "query": "Directions",
+        "domain": "navigation"
+    },
+    {
+        "query": "Block C",
+        "domain": "navigation"
+    },
+    {
+        "query": "VC office",
+        "domain": "navigation"
+    },
+    {
+        "query": "How do I get there?",
+        "domain": "navigation"
+    }
+]

@@ -1,0 +1,326 @@
+{
+  "demo_queries": [
+    {
+      "query": "What documents do I need to submit along with my online application?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Are international students eligible for merit-based scholarships, and how do we apply?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Hi, I wanted to know when the deadline is for the Regular Decision application for the Fall semester?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Is there any gap year policy that might affect my eligibility for undergraduate admissions?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Can you tell me if the application fee of $75 can be waived or refunded?",
+      "domain": "admissions"
+    },
+    {
+      "query": "I'm a parent looking to enroll my son. What is the tuition fee per semester for the Computer Science major?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Do we have to send official SAT/ACT scores directly from College Board, or can we self-report them?",
+      "domain": "admissions"
+    },
+    {
+      "query": "If my final high school board exam results are delayed, can I submit predicted grades for conditional admission?",
+      "domain": "admissions"
+    },
+    {
+      "query": "What are the English proficiency requirements for a transfer student from a non-English speaking country?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Hello! I am planning to apply for Early Action. Do I need to submit separate forms for financial aid by Nov 15?",
+      "domain": "admissions"
+    },
+    {
+      "query": "What is the minimum attendance percentage required to sit for the final semester examinations?",
+      "domain": "academics"
+    },
+    {
+      "query": "My attendance in data structures is 72% due to a medical issue. How do I request an attendance waiver?",
+      "domain": "academics"
+    },
+    {
+      "query": "Excuse me, what happens if I miss a final exam because of an emergency?",
+      "domain": "academics"
+    },
+    {
+      "query": "Can you explain the formula used to calculate SGPA and how it differs from CGPA?",
+      "domain": "academics"
+    },
+    {
+      "query": "Are we allowed to bring non-programmable scientific calculators to the physics final exam?",
+      "domain": "academics"
+    },
+    {
+      "query": "How long does the paper revaluation process take and where do the updated marks show up?",
+      "domain": "academics"
+    },
+    {
+      "query": "If I repeat a course to clear an F grade, how will my old and new grades be factored into my CGPA?",
+      "domain": "academics"
+    },
+    {
+      "query": "Hey there, do you know when the class timetable for the next semester is going to be published on the portal?",
+      "domain": "academics"
+    },
+    {
+      "query": "Can I register for 21 credits this semester if my current CGPA is 3.7?",
+      "domain": "academics"
+    },
+    {
+      "query": "Where can I request an official academic transcript and how many days does it take to process?",
+      "domain": "academics"
+    },
+    {
+      "query": "What is the typical recruitment process and selection rounds for software engineering roles at Microsoft?",
+      "domain": "placements"
+    },
+    {
+      "query": "Are pre-final year students with active backlogs allowed to participate in summer internship drives?",
+      "domain": "placements"
+    },
+    {
+      "query": "Can you tell me how to get my resume verified and approved by the placement cell coordinator?",
+      "domain": "placements"
+    },
+    {
+      "query": "What are the rules regarding the 'One Student, One Job' policy, and what is the package threshold for a dream offer?",
+      "domain": "placements"
+    },
+    {
+      "query": "What coding topics and algorithmic paradigms are most frequently tested in the Amazon online assessment?",
+      "domain": "placements"
+    },
+    {
+      "query": "Can I upload three separate resumes customized for Software Dev, Data Analyst, and Consultant profiles?",
+      "domain": "placements"
+    },
+    {
+      "query": "Hello, I got an internship off-campus. Do I need an official NOC from the Dean of Academics to join?",
+      "domain": "placements"
+    },
+    {
+      "query": "What is the minimum CGPA cut-off required to sit for the Amazon campus placement drive?",
+      "domain": "placements"
+    },
+    {
+      "query": "Does the placement cell charge any registration fee for the campus placement season?",
+      "domain": "placements"
+    },
+    {
+      "query": "Hi! If I sign a job offer letter, can I still sit for a super dream company that offers double the package?",
+      "domain": "placements"
+    },
+    {
+      "query": "How can an undergraduate student find and join active research projects led by CSE faculty?",
+      "domain": "research"
+    },
+    {
+      "query": "Do faculty-led research projects funded by external agencies provide monthly stipends for student assistants?",
+      "domain": "research"
+    },
+    {
+      "query": "What research labs are currently active in the Computer Science and Engineering department?",
+      "domain": "research"
+    },
+    {
+      "query": "What are the eligibility requirements and application deadlines for the UROP program?",
+      "domain": "research"
+    },
+    {
+      "query": "Hi, how do I apply for keycard access to work in the AI Research Lab after office hours?",
+      "domain": "research"
+    },
+    {
+      "query": "Does the university provide financial assistance or travel grants for presenting research papers at conferences?",
+      "domain": "research"
+    },
+    {
+      "query": "What computing clusters and specialized GPU hardware are available for machine learning research?",
+      "domain": "research"
+    },
+    {
+      "query": "Can I register for independent study research credits instead of an elective course this term?",
+      "domain": "research"
+    },
+    {
+      "query": "Is there any annual symposium or poster presentation event where I can present my summer research?",
+      "domain": "research"
+    },
+    {
+      "query": "How is the author order determined on collaborative research publications with professors?",
+      "domain": "research"
+    },
+    {
+      "query": "How do I apply for hostel accommodation and what criteria are used for room allotment?",
+      "domain": "student_services"
+    },
+    {
+      "query": "What are the hostel curfew timings, and are parents allowed to visit our rooms?",
+      "domain": "student_services"
+    },
+    {
+      "query": "My room's ceiling fan isn't working. How do I file a maintenance complaint on the campus portal?",
+      "domain": "student_services"
+    },
+    {
+      "query": "What are the library opening hours during the final exam weeks? Is it open 24/7?",
+      "domain": "student_services"
+    },
+    {
+      "query": "How many books can a graduate student borrow at a time, and what is the daily fine for late returns?",
+      "domain": "student_services"
+    },
+    {
+      "query": "How can I set up the university proxy or VPN to access online research journals from my home network?",
+      "domain": "student_services"
+    },
+    {
+      "query": "I lost my physical student ID card. What is the replacement fee and where do I get a new one?",
+      "domain": "student_services"
+    },
+    {
+      "query": "Can we use the digital barcode ID card on our mobile app to enter the central library?",
+      "domain": "student_services"
+    },
+    {
+      "query": "How do I request a Bonafide Certificate for my education loan application, and how long does it take?",
+      "domain": "student_services"
+    },
+    {
+      "query": "What counseling and mental health services are available on campus, and are they completely confidential?",
+      "domain": "student_services"
+    },
+    {
+      "query": "Where is the Central Library located, and how do I get there from the main campus gate?",
+      "domain": "navigation"
+    },
+    {
+      "query": "How do I reach the Placement Cell in the Administrative Block from the CS department?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Where is the AI Research Lab located, and which floor of Engineering Block C is it on?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Can you give me step-by-step directions to the Campus Health Center from Hostel Block D?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Excuse me, where is the Central Cafeteria and is it close to the indoor gym?",
+      "domain": "navigation"
+    },
+    {
+      "query": "How do I find the Computer Science Department Office on the 2nd floor of Engineering Block C?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Where are the Admissions Office and the Accounts & Fee Counter in the Administrative Block?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Where is the Moot Court Hall, and is it in the Law Department Block or the Main Block?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Hi, I need to get to the Counseling & Mental Health Center. Is it in the Student Activity Center?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Where is the Vice Chancellor's office located in the Administrative Block, and can I take the elevator?",
+      "domain": "navigation"
+    }
+  ],
+  "ambiguous_queries": [
+    {
+      "query": "Microsoft",
+      "domain": "placements"
+    },
+    {
+      "query": "Hostel",
+      "domain": "student_services"
+    },
+    {
+      "query": "Can I apply?",
+      "domain": "admissions"
+    },
+    {
+      "query": "Library",
+      "domain": "student_services"
+    },
+    {
+      "query": "Placement",
+      "domain": "placements"
+    },
+    {
+      "query": "Research opportunities",
+      "domain": "research"
+    },
+    {
+      "query": "GPA",
+      "domain": "academics"
+    },
+    {
+      "query": "Fees",
+      "domain": "admissions"
+    },
+    {
+      "query": "ID card",
+      "domain": "student_services"
+    },
+    {
+      "query": "Directions",
+      "domain": "navigation"
+    },
+    {
+      "query": "Deadlines",
+      "domain": "admissions"
+    },
+    {
+      "query": "Calculator",
+      "domain": "academics"
+    },
+    {
+      "query": "That form",
+      "domain": "student_services"
+    },
+    {
+      "query": "UROP",
+      "domain": "research"
+    },
+    {
+      "query": "Failed a course",
+      "domain": "academics"
+    },
+    {
+      "query": "Block C",
+      "domain": "navigation"
+    },
+    {
+      "query": "Where is it?",
+      "domain": "navigation"
+    },
+    {
+      "query": "Attendance",
+      "domain": "academics"
+    },
+    {
+      "query": "Resume template",
+      "domain": "placements"
+    },
+    {
+      "query": "Health center",
+      "domain": "student_services"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+[
+    {
+        "facility": "Central Library",
+        "building": "Knowledge Resource Center",
+        "floor": "Ground Floor",
+        "landmark": "Opposite Administrative Block",
+        "directions": "Enter through the main campus gate, walk straight past the central fountain, and the library is the large glass building on your left."
+    },
+    {
+        "facility": "Placement Cell",
+        "building": "Administrative Block",
+        "floor": "1st Floor",
+        "landmark": "Next to Accounts Section",
+        "directions": "Enter the Administrative Block, take the stairs on your left to the 1st floor, and walk down the corridor to Room 104."
+    },
+    {
+        "facility": "AI Research Lab",
+        "building": "Engineering Block C",
+        "floor": "3rd Floor",
+        "landmark": "Opposite Server Room",
+        "directions": "Enter Engineering Block C, take the elevator to the 3rd floor, turn right, and walk to the end of the hallway."
+    },
+    {
+        "facility": "Registrar's Office",
+        "building": "Administrative Block",
+        "floor": "Ground Floor",
+        "landmark": "Near Main Reception",
+        "directions": "Enter the Administrative Block, take an immediate right after the reception desk, and it is the first office on the right."
+    },
+    {
+        "facility": "Chemistry Lab",
+        "building": "Science Block A",
+        "floor": "2nd Floor",
+        "landmark": "Next to Physics Lab",
+        "directions": "Go to Science Block A, take the stairs to the 2nd floor, turn left, and walk past the faculty cabins to the double-door lab."
+    },
+    {
+        "facility": "Physics Lab",
+        "building": "Science Block A",
+        "floor": "2nd Floor",
+        "landmark": "Near Science Block Elevator",
+        "directions": "Head to the 2nd floor of Science Block A, and the lab is located directly opposite the elevator exit."
+    },
+    {
+        "facility": "Central Cafeteria",
+        "building": "Student Activity Center (SAC)",
+        "floor": "Ground Floor",
+        "landmark": "Next to the Indoor Gym",
+        "directions": "Walk to the Student Activity Center behind the sports ground; the cafeteria entrance is on the right side of the main lobby."
+    },
+    {
+        "facility": "Indoor Sports Complex",
+        "building": "Student Activity Center (SAC)",
+        "floor": "Ground Floor",
+        "landmark": "Behind the Football Field",
+        "directions": "From the main entrance, follow the path past the football field, enter the SAC building, and the sports complex is on the ground floor."
+    },
+    {
+        "facility": "Campus Health Center",
+        "building": "Hostel Block D Annex",
+        "floor": "Ground Floor",
+        "landmark": "Opposite the Basketball Court",
+        "directions": "Head towards the Hostel Block D entrance; the health center is in the adjacent annex building next to the pharmacy."
+    },
+    {
+        "facility": "Dean of Student Affairs Office",
+        "building": "Administrative Block",
+        "floor": "2nd Floor",
+        "landmark": "Opposite the Seminar Hall",
+        "directions": "Enter the Administrative Block, take the elevator to the 2nd floor, turn left, and walk past the main meeting room."
+    },
+    {
+        "facility": "Seminar Hall A",
+        "building": "Main Block",
+        "floor": "1st Floor",
+        "landmark": "Near Central Lounge",
+        "directions": "Walk to the 1st floor of the Main Block, walk straight past the lounge, and the double doors to Seminar Hall A are on your left."
+    },
+    {
+        "facility": "Computer Science Department Office",
+        "building": "Engineering Block C",
+        "floor": "2nd Floor",
+        "landmark": "Next to the HOD Cabin",
+        "directions": "Enter Engineering Block C, take the stairs to the 2nd floor, turn left, and the department office is the third door on the right."
+    },
+    {
+        "facility": "Mathematics Department Office",
+        "building": "Science Block B",
+        "floor": "1st Floor",
+        "landmark": "Near Department Library",
+        "directions": "Walk to the 1st floor of Science Block B, turn right at the notice board, and the office is next to the library room."
+    },
+    {
+        "facility": "Biotechnology Lab",
+        "building": "Bio-Science Block",
+        "floor": "3rd Floor",
+        "landmark": "Near Greenhouse Entrance",
+        "directions": "Head to the 3rd floor of the Bio-Science Block, walk straight down the corridor, and the lab is on the left before the greenhouse."
+    },
+    {
+        "facility": "Robotics & Automation Lab",
+        "building": "Mechanical Engineering Block",
+        "floor": "Ground Floor",
+        "landmark": "Near CNC Workshop",
+        "directions": "Enter the Mechanical Engineering Block from the rear entrance, walk past the CNC machine shop, and the lab is on your right."
+    },
+    {
+        "facility": "Admissions Office",
+        "building": "Administrative Block",
+        "floor": "Ground Floor",
+        "landmark": "Next to Inquiry Desk",
+        "directions": "Walk into the Administrative Block main entrance, and the admissions office is located directly behind the main inquiry desk."
+    },
+    {
+        "facility": "Accounts & Fee Counter",
+        "building": "Administrative Block",
+        "floor": "Ground Floor",
+        "landmark": "Opposite Admissions Office",
+        "directions": "Walk into the Administrative Block lobby, and the accounts desk is located directly to your left across from the admissions desk."
+    },
+    {
+        "facility": "Campus Main Auditorium",
+        "building": "Auditorium Block",
+        "floor": "Ground Floor",
+        "landmark": "Near Campus Main Gate",
+        "directions": "Immediately after entering the campus main gate, take the first right turn; the auditorium is the large dome-shaped building."
+    },
+    {
+        "facility": "Language Lab",
+        "building": "Humanities Block",
+        "floor": "2nd Floor",
+        "landmark": "Opposite English Faculty Cabins",
+        "directions": "Head to the 2nd floor of the Humanities Block, turn right, and the lab is the second door on the left."
+    },
+    {
+        "facility": "Graphics Design Studio",
+        "building": "Architecture & Design Block",
+        "floor": "4th Floor",
+        "landmark": "Near Drawing Hall",
+        "directions": "Take the elevator to the 4th floor of the Design Block, turn left, and it is located at the end of the corridor."
+    },
+    {
+        "facility": "Counseling & Mental Health Center",
+        "building": "Student Activity Center (SAC)",
+        "floor": "1st Floor",
+        "landmark": "Next to the Yoga Room",
+        "directions": "Go to the 1st floor of the SAC building, turn right, and the counseling center is located in a quiet corridor at the end."
+    },
+    {
+        "facility": "Alumni Association Office",
+        "building": "Administrative Block",
+        "floor": "3rd Floor",
+        "landmark": "Next to Board Room",
+        "directions": "Take the elevator to the 3rd floor of the Administrative Block, turn right, and walk past the board room entrance."
+    },
+    {
+        "facility": "Student Senate Hall",
+        "building": "Student Activity Center (SAC)",
+        "floor": "2nd Floor",
+        "landmark": "Near Student Union Office",
+        "directions": "Take the stairs to the 2nd floor of the SAC, turn left, and the Senate Hall is the large double-door room on the left."
+    },
+    {
+        "facility": "Examination Cell",
+        "building": "Administrative Block",
+        "floor": "1st Floor",
+        "landmark": "Near Controller of Exams Office",
+        "directions": "Take the stairs to the 1st floor of the Administrative Block, turn left, and walk straight to the secure access zone."
+    },
+    {
+        "facility": "Mechanical Workshop",
+        "building": "Mechanical Engineering Block",
+        "floor": "Ground Floor",
+        "landmark": "Near Foundry Shop",
+        "directions": "Walk to the ground floor of the Mechanical Block, follow the signs to the workshop corridor, and enter the double doors on the left."
+    },
+    {
+        "facility": "Electrical Machines Lab",
+        "building": "Electrical Engineering Block",
+        "floor": "Ground Floor",
+        "landmark": "Opposite Power Systems Lab",
+        "directions": "Enter the Electrical Engineering Block, walk down the main ground floor corridor, and the lab is the last room on the right."
+    },
+    {
+        "facility": "Civil Engineering Survey Lab",
+        "building": "Civil Engineering Block",
+        "floor": "Ground Floor",
+        "landmark": "Near Materials Testing Lab",
+        "directions": "Go to the ground floor of the Civil Block, walk to the rear exit near the testing yard, and the lab is on the left."
+    },
+    {
+        "facility": "Executive Board Room",
+        "building": "Administrative Block",
+        "floor": "3rd Floor",
+        "landmark": "Opposite VC Office",
+        "directions": "Take the elevator to the 3rd floor of the Administrative Block, turn left, and the board room is directly opposite the VC's office."
+    },
+    {
+        "facility": "Vice Chancellor (VC) Office",
+        "building": "Administrative Block",
+        "floor": "3rd Floor",
+        "landmark": "Next to Conference Hall",
+        "directions": "Go to the 3rd floor of the Administrative Block, take a left from the elevator, and the VC office suite is at the end of the corridor."
+    },
+    {
+        "facility": "Career Guidance Cell",
+        "building": "Library Block",
+        "floor": "1st Floor",
+        "landmark": "Near Reference Section",
+        "directions": "Go to the 1st floor of the Library Block, turn left, and the Career Guidance Cell is located next to the reference book racks."
+    },
+    {
+        "facility": "Photocopy & Stationery Shop",
+        "building": "Student Activity Center (SAC)",
+        "floor": "Ground Floor",
+        "landmark": "Next to the Food Stall",
+        "directions": "Enter the SAC building from the front entrance, walk past the seating area, and the shop is on the left next to the food stall."
+    },
+    {
+        "facility": "Main Security Office",
+        "building": "Main Gate Security Block",
+        "floor": "Ground Floor",
+        "landmark": "Right side of Campus Entry Gate",
+        "directions": "Located immediately at the main campus entrance, in the small security building on the right side of the gates."
+    },
+    {
+        "facility": "Guest House Reception",
+        "building": "University Guest House",
+        "floor": "Ground Floor",
+        "landmark": "Near Staff Quarters",
+        "directions": "Walk past the faculty housing block to the Guest House building; the reception lobby is located just past the main glass doors."
+    },
+    {
+        "facility": "Girls' Common Room",
+        "building": "Humanities Block",
+        "floor": "Ground Floor",
+        "landmark": "Next to Ladies Washroom",
+        "directions": "Go to the ground floor of the Humanities Block, turn right from the entrance, and the common room is the second door on the left."
+    },
+    {
+        "facility": "Boys' Common Room",
+        "building": "Engineering Block A",
+        "floor": "Ground Floor",
+        "landmark": "Near Sports Equipment Room",
+        "directions": "Walk to the ground floor of Engineering Block A, turn left at the entrance lobby, and it is located next to the sports locker room."
+    },
+    {
+        "facility": "Placement Interview Room 1",
+        "building": "Placement Cell Block",
+        "floor": "1st Floor",
+        "landmark": "Opposite Conference Hall",
+        "directions": "Walk to the 1st floor of the Placement Block, and the interview room is the first glass cabin on the left."
+    },
+    {
+        "facility": "Placement Interview Room 2",
+        "building": "Placement Cell Block",
+        "floor": "1st Floor",
+        "landmark": "Next to Placement Interview Room 1",
+        "directions": "Head to the 1st floor of the Placement Block, walk past Interview Room 1, and Room 2 is the next cabin on the left."
+    },
+    {
+        "facility": "Data Center / Server Room",
+        "building": "Engineering Block C",
+        "floor": "3rd Floor",
+        "landmark": "Opposite AI Research Lab",
+        "directions": "Take the elevator to the 3rd floor of Block C, turn right, and the secured-access Data Center is on the left."
+    },
+    {
+        "facility": "IQAC Office",
+        "building": "Administrative Block",
+        "floor": "2nd Floor",
+        "landmark": "Near Research Cell Office",
+        "directions": "Go to the 2nd floor of the Administrative Block, turn right, and the IQAC office is the second door on the left."
+    },
+    {
+        "facility": "NCC / NSS Office",
+        "building": "Student Activity Center (SAC)",
+        "floor": "Ground Floor",
+        "landmark": "Behind the Cafeteria",
+        "directions": "Walk to the back exit of the SAC cafeteria, take the corridor to the left, and the NCC/NSS office is at the end."
+    },
+    {
+        "facility": "Music Room",
+        "building": "Student Activity Center (SAC)",
+        "floor": "2nd Floor",
+        "landmark": "Next to Dance Studio",
+        "directions": "Take the stairs to the 2nd floor of the SAC, turn right, and the soundproofed music room is the third door on the right."
+    },
+    {
+        "facility": "Fine Arts Gallery",
+        "building": "Architecture & Design Block",
+        "floor": "Ground Floor",
+        "landmark": "Near Main Lobby Exhibition Area",
+        "directions": "Enter the Design Block, walk straight through the main lobby, and the entry to the gallery is directly ahead."
+    },
+    {
+        "facility": "Dean of Academics Office",
+        "building": "Administrative Block",
+        "floor": "2nd Floor",
+        "landmark": "Next to Dean of Student Affairs Office",
+        "directions": "Head to the 2nd floor of the Administrative Block, turn left from the elevator, and the Academic office is the second door on the right."
+    },
+    {
+        "facility": "Research & Development Cell",
+        "building": "Science Block B",
+        "floor": "Ground Floor",
+        "landmark": "Opposite Chemistry Lab",
+        "directions": "Enter Science Block B, walk down the ground floor hallway, and the R&D cell is on the right side."
+    },
+    {
+        "facility": "IoT Innovation Lab",
+        "building": "Engineering Block D",
+        "floor": "2nd Floor",
+        "landmark": "Near Embedded Systems Lab",
+        "directions": "Go to the 2nd floor of Engineering Block D, turn left, and the IoT lab is the third room on the left."
+    },
+    {
+        "facility": "Moot Court Hall",
+        "building": "Law Department Block",
+        "floor": "1st Floor",
+        "landmark": "Opposite Department Seminar Hall",
+        "directions": "Walk to the 1st floor of the Law Block, and the Moot Court hall with the wooden double doors is on the right."
+    },
+    {
+        "facility": "Business Incubation Center",
+        "building": "Management Studies Block",
+        "floor": "2nd Floor",
+        "landmark": "Near Startup Cubicles",
+        "directions": "Take the stairs to the 2nd floor of the Management Block, turn right, and walk straight into the incubation open space."
+    },
+    {
+        "facility": "Electronics & Communication Lab",
+        "building": "Engineering Block D",
+        "floor": "1st Floor",
+        "landmark": "Next to Microprocessor Lab",
+        "directions": "Head to the 1st floor of Block D, turn right, and the lab is located halfway down the corridor on the left."
+    },
+    {
+        "facility": "Digital Library Section",
+        "building": "Knowledge Resource Center",
+        "floor": "1st Floor",
+        "landmark": "Near E-Journal Terminals",
+        "directions": "Take the central library stairs to the 1st floor, walk past the book racks, and turn right into the computer terminal zone."
+    },
+    {
+        "facility": "Controller of Examinations Office",
+        "building": "Administrative Block",
+        "floor": "1st Floor",
+        "landmark": "Next to Examination Cell",
+        "directions": "Go to the 1st floor of the Administrative Block, turn left, and the Controller's office is the secure cabin at the end of the hallway."
+    }
+]
